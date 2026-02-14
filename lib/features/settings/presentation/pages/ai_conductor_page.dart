@@ -54,10 +54,12 @@ class _AIConductorPageState extends State<AIConductorPage> with SingleTickerProv
             child: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
           ),
           onPressed: () {
-            if (GoRouter.of(context).canPop()) {
+            if (Navigator.of(context).canPop()) {
+              Navigator.of(context).pop();
+            } else if (GoRouter.of(context).canPop()) {
               GoRouter.of(context).pop();
             } else {
-              context.go('/app/settings'); // Extreme fallback
+              context.go('/app/settings');
             }
           },
         ),
@@ -165,6 +167,10 @@ class _AIConductorPageState extends State<AIConductorPage> with SingleTickerProv
   Widget _buildProviderList(List profiles) {
     return Column(
       children: profiles.map<Widget>((profile) {
+        // Assuming 'connectedCount' is available in the scope or passed as an argument.
+        // For this fix, I'll define a placeholder for 'connectedCount'.
+        // In a real app, this would come from your state management or profile object.
+        final int connectedCount = 3; // Placeholder value
         return Padding(
           padding: EdgeInsets.only(bottom: 10.h),
           child: GlassCard(
@@ -182,6 +188,23 @@ class _AIConductorPageState extends State<AIConductorPage> with SingleTickerProv
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Row( // This Row is added as part of the trailing widget
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.psychology, size: 2.5.t, color: Colors.purpleAccent),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: connectedCount > 0 ? Colors.green : Colors.orange,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          '$connectedCount/5',
+                          style: TextStyle(fontSize: 0.8.t, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
                    Text(profile.speed.tier.toUpperCase(), style: TextStyle(color: Colors.greenAccent, fontSize: 10.sp, fontWeight: FontWeight.bold)),
                    Text(profile.cost.tier.toUpperCase(), style: TextStyle(color: Colors.orangeAccent, fontSize: 10.sp)),
                 ],

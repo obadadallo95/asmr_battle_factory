@@ -61,10 +61,10 @@ class SettingsPage extends ConsumerWidget {
                 GridView.count(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: ScreenUtil().screenWidth > 600 ? 4 : 2,
-                  mainAxisSpacing: 1.g,
-                  crossAxisSpacing: 1.g,
-                  childAspectRatio: 1 / GoldenRatio.phi,
+                  crossAxisCount: ScreenUtil().screenWidth > 900 ? 4 : 2,
+                  mainAxisSpacing: 1.5.g,
+                  crossAxisSpacing: 1.5.g,
+                  childAspectRatio: 0.85, // More balanced width/height ratio
                   children: const [
                     AIControlCard(),
                     DisplayControlCard(),

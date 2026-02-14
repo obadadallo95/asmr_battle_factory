@@ -25,18 +25,18 @@ class AIControlCard extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.psychology, size: 3.t, color: Colors.purpleAccent),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 0.g, vertical: 2),
-                decoration: BoxDecoration(
-                  color: connectedCount > 0 ? Colors.green : Colors.orange,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
+              Flexible(child: Icon(Icons.psychology, size: 3.t, color: Colors.purpleAccent)),
+              Flexible(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: connectedCount > 0 ? Colors.green : Colors.orange,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
                   child: Text(
                     '$connectedCount/5',
                     style: TextStyle(fontSize: 1.t, color: Colors.white, fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),
@@ -73,19 +73,24 @@ class DisplayControlCard extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                isDark ? Icons.dark_mode : Icons.light_mode,
-                size: 3.t,
-                color: isDark ? Colors.indigoAccent : Colors.orangeAccent,
+              Flexible(
+                child: Icon(
+                  isDark ? Icons.dark_mode : Icons.light_mode,
+                  size: 3.t,
+                  color: isDark ? Colors.indigoAccent : Colors.orangeAccent,
+                ),
               ),
-              Switch.adaptive(
-                value: isDark,
-                activeThumbColor: Colors.purpleAccent,
-                onChanged: (value) {
-                  ref.read(settingsProvider.notifier).setThemeMode(
-                    value ? ThemeMode.dark : ThemeMode.light,
-                  );
-                },
+              Transform.scale(
+                scale: 0.8,
+                child: Switch.adaptive(
+                  value: isDark,
+                  activeThumbColor: Colors.purpleAccent,
+                  onChanged: (value) {
+                    ref.read(settingsProvider.notifier).setThemeMode(
+                      value ? ThemeMode.dark : ThemeMode.light,
+                    );
+                  },
+                ),
               ),
             ],
           ),
