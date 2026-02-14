@@ -62,9 +62,9 @@ class SettingsPage extends ConsumerWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: ScreenUtil().screenWidth > 900 ? 4 : 2,
-                  mainAxisSpacing: 1.5.g,
-                  crossAxisSpacing: 1.5.g,
-                  childAspectRatio: 0.85, // More balanced width/height ratio
+                  mainAxisSpacing: 1.g,
+                  crossAxisSpacing: 1.g,
+                  childAspectRatio: 1.1, // Relaxed ratio for more height
                   children: const [
                     AIControlCard(),
                     DisplayControlCard(),

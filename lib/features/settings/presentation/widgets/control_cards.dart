@@ -18,24 +18,24 @@ class AIControlCard extends ConsumerWidget {
     
     return GlassCard(
       onTap: () => context.push('/settings/conductor'),
-      padding: context.gPadding(Factor.sm),
+      padding: context.gPadding(Factor.xs),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Flexible(child: Icon(Icons.psychology, size: 3.t, color: Colors.purpleAccent)),
+              Flexible(child: Icon(Icons.psychology, size: 2.5.t, color: Colors.purpleAccent)),
               Flexible(
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2),
+                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                   decoration: BoxDecoration(
                     color: connectedCount > 0 ? Colors.green : Colors.orange,
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
                     '$connectedCount/5',
-                    style: TextStyle(fontSize: 1.t, color: Colors.white, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 0.8.t, color: Colors.white, fontWeight: FontWeight.bold),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -43,13 +43,23 @@ class AIControlCard extends ConsumerWidget {
             ],
           ),
           const Spacer(),
-          Text(
-            'settings.ai.title'.tr(),
-            style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+          Expanded(
+            flex: 0,
+            child: Text(
+              'settings.ai.title'.tr(),
+              style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          Text(
-            'settings.ai.subtitle'.tr(args: ['$connectedCount']),
-            style: TextStyle(fontSize: 1.t, color: Colors.white54),
+          Expanded(
+            flex: 0,
+            child: Text(
+              'settings.ai.subtitle'.tr(args: ['$connectedCount']),
+              style: TextStyle(fontSize: 0.9.t, color: Colors.white54),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),
@@ -66,7 +76,7 @@ class DisplayControlCard extends ConsumerWidget {
     final isDark = themeMode == ThemeMode.dark;
     
     return GlassCard(
-      padding: context.gPadding(Factor.sm),
+      padding: context.gPadding(Factor.xs),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -76,32 +86,44 @@ class DisplayControlCard extends ConsumerWidget {
               Flexible(
                 child: Icon(
                   isDark ? Icons.dark_mode : Icons.light_mode,
-                  size: 3.t,
+                  size: 2.5.t,
                   color: isDark ? Colors.indigoAccent : Colors.orangeAccent,
                 ),
               ),
-              Transform.scale(
-                scale: 0.8,
-                child: Switch.adaptive(
-                  value: isDark,
-                  activeThumbColor: Colors.purpleAccent,
-                  onChanged: (value) {
-                    ref.read(settingsProvider.notifier).setThemeMode(
-                      value ? ThemeMode.dark : ThemeMode.light,
-                    );
-                  },
+              Flexible(
+                child: Transform.scale(
+                  scale: 0.7, // Slighting smaller for ultra-narrow screens
+                  child: Switch.adaptive(
+                    value: isDark,
+                    activeThumbColor: Colors.purpleAccent,
+                    onChanged: (value) {
+                      ref.read(settingsProvider.notifier).setThemeMode(
+                        value ? ThemeMode.dark : ThemeMode.light,
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
           ),
           const Spacer(),
-          Text(
-            'settings.display.title'.tr(),
-            style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+          Expanded(
+            flex: 0,
+            child: Text(
+              'settings.display.title'.tr(),
+              style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          Text(
-            isDark ? 'settings.display.dark'.tr() : 'settings.display.light'.tr(),
-            style: TextStyle(fontSize: 1.t, color: Colors.white54),
+          Expanded(
+            flex: 0,
+            child: Text(
+              isDark ? 'settings.display.dark'.tr() : 'settings.display.light'.tr(),
+              style: TextStyle(fontSize: 0.9.t, color: Colors.white54),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),
@@ -118,23 +140,33 @@ class SecurityControlCard extends ConsumerWidget {
     
     return GlassCard(
       onTap: () => ref.read(settingsProvider.notifier).toggleBiometricLock(),
-      padding: context.gPadding(Factor.sm),
+      padding: context.gPadding(Factor.xs),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(
             isLocked ? Icons.lock : Icons.lock_open,
-            size: 3.t,
+            size: 2.5.t,
             color: isLocked ? Colors.greenAccent : Colors.orangeAccent,
           ),
           const Spacer(),
-          Text(
-            'settings.security.title'.tr(),
-            style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+          Expanded(
+            flex: 0,
+            child: Text(
+              'settings.security.title'.tr(),
+              style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          Text(
-            isLocked ? 'settings.security.locked'.tr() : 'settings.security.unlocked'.tr(),
-            style: TextStyle(fontSize: 1.t, color: Colors.white54),
+          Expanded(
+            flex: 0,
+            child: Text(
+              isLocked ? 'settings.security.locked'.tr() : 'settings.security.unlocked'.tr(),
+              style: TextStyle(fontSize: 0.9.t, color: Colors.white54),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),
@@ -153,24 +185,33 @@ class LanguageControlCard extends ConsumerWidget {
       onTap: () {
         final newLocale = isArabic ? const Locale('en') : const Locale('ar');
         context.setLocale(newLocale);
-        // Also update service via notifier if needed
       },
-      padding: context.gPadding(Factor.sm),
+      padding: context.gPadding(Factor.xs),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             isArabic ? '🇸🇦' : '🇬🇧',
-            style: TextStyle(fontSize: 3.t),
+            style: TextStyle(fontSize: 2.5.t),
           ),
           const Spacer(),
-          Text(
-            'settings.language.title'.tr(),
-            style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+          Expanded(
+            flex: 0,
+            child: Text(
+              'settings.language.title'.tr(),
+              style: GoogleFonts.cairo(fontSize: 1.t, fontWeight: FontWeight.bold, color: Colors.white),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-          Text(
-            isArabic ? 'العربية' : 'English',
-            style: TextStyle(fontSize: 1.t, color: Colors.white54),
+          Expanded(
+            flex: 0,
+            child: Text(
+              isArabic ? 'العربية' : 'English',
+              style: TextStyle(fontSize: 0.9.t, color: Colors.white54),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

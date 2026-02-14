@@ -12,6 +12,12 @@ extension ResponsiveDouble on double {
   /// Golden ratio proportional height
   /// Usage: 1.0.gh (screen height / φ)
   double get gh => GoldenRatio.ofHeight(ScreenUtil().screenHeight, divisions: toInt());
+
+  /// Golden ratio spacing
+  double get g => GoldenRatio.spacing(null, factor: Factor.values[toInt().clamp(0, Factor.values.length - 1)]);
+
+  /// Golden ratio text size
+  double get t => GoldenRatio.textSize(null, TextScale.values[toInt().clamp(0, TextScale.values.length - 1)]);
 }
 
 extension ResponsiveInt on int {
