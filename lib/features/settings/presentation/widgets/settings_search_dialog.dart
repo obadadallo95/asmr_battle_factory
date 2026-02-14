@@ -85,9 +85,13 @@ class SettingsSearchDialog extends ConsumerWidget {
                     title: Text(item.title, style: const TextStyle(color: Colors.white)),
                     trailing: const Icon(Icons.arrow_forward_ios, size: 14, color: Colors.white30),
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.pop(context); // Close dialog
                       if (item.route.isNotEmpty) {
-                        context.go(item.route);
+                        if (item.route == '/settings/about') {
+                          context.push('/settings/about/developer');
+                        } else {
+                          context.push(item.route);
+                        }
                       }
                     },
                   );

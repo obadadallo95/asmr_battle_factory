@@ -53,7 +53,13 @@ class _AIConductorPageState extends State<AIConductorPage> with SingleTickerProv
             ),
             child: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
           ),
-          onPressed: () => context.pop(),
+          onPressed: () {
+            if (GoRouter.of(context).canPop()) {
+              GoRouter.of(context).pop();
+            } else {
+              context.go('/app/settings'); // Extreme fallback
+            }
+          },
         ),
       ),
       body: Container(
