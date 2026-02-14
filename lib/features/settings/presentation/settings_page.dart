@@ -107,7 +107,9 @@ class SettingsPage extends ConsumerWidget {
                       DangerousActionButton(
                         icon: Icons.restore,
                         label: 'settings.reset_all'.tr(),
-                        onTap: () => context.push('/settings/about/developer'),
+                        onHoldComplete: () {
+                          // TODO: Implement actual reset logic
+                        },
                         sublabel: 'settings.reset_all_desc'.tr(),
                         color: Colors.redAccent,
                         holdDuration: const Duration(seconds: 3),

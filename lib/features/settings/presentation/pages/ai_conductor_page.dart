@@ -8,6 +8,7 @@ import 'package:get_it/get_it.dart';
 import '../../../../core/widgets/glass_card.dart';
 import '../../../../features/ai/data/provider_registry.dart';
 import '../../../../features/ai/data/services/smart_router.dart';
+import 'package:go_router/go_router.dart';
 
 class AIConductorPage extends StatefulWidget {
   const AIConductorPage({super.key});
@@ -143,9 +144,11 @@ class _AIConductorPageState extends State<AIConductorPage> with SingleTickerProv
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _StrategyButton(icon: Icons.flash_on, label: 'Speed', onPressed: () => _router.setPriority(RoutingPriority.speed)),
-              _StrategyButton(icon: Icons.star, label: 'Quality', isActive: true, onPressed: () => _router.setPriority(RoutingPriority.quality)),
-              _StrategyButton(icon: Icons.attach_money, label: 'Cost', onPressed: () => _router.setPriority(RoutingPriority.cost)),
+              Expanded(child: _StrategyButton(icon: Icons.flash_on, label: 'Speed', onPressed: () => _router.setPriority(RoutingPriority.speed))),
+              SizedBox(width: 8.w),
+              Expanded(child: _StrategyButton(icon: Icons.star, label: 'Quality', isActive: true, onPressed: () => _router.setPriority(RoutingPriority.quality))),
+              SizedBox(width: 8.w),
+              Expanded(child: _StrategyButton(icon: Icons.attach_money, label: 'Cost', onPressed: () => _router.setPriority(RoutingPriority.cost))),
             ],
           ),
         ],
@@ -228,7 +231,7 @@ class _StrategyButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: isActive ? Colors.cyanAccent.withValues(alpha: 0.2) : Colors.white10,
           borderRadius: BorderRadius.circular(20.r),
