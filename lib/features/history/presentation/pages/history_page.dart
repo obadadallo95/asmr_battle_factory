@@ -23,7 +23,7 @@ class HistoryPage extends ConsumerWidget {
         ? _buildEmptyState(context)
         : _buildHistoryList(context, ref, history),
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, s) => Center(child: Text('Error: $e')),
+      error: (e, s) => Center(child: Text('common.error'.tr(args: ['$e']))),
     );
   }
 

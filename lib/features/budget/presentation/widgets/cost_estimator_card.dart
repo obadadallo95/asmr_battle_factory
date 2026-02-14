@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../core/widgets/glass_card.dart';
 import '../providers/budget_provider.dart';
 import '../../data/models/cost_estimate.dart';
@@ -48,7 +49,7 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
                       Row(
                         children: [
                           Text(
-                            '💰 تقدير التكلفة', 
+                            'budget.estimator.title'.tr(),
                             style: GoogleFonts.cairo(color: Colors.white70, fontSize: 12.sp)
                           ),
                           SizedBox(width: 4.w),
@@ -78,7 +79,7 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
                           borderRadius: BorderRadius.circular(12.r),
                         ),
                         child: Text(
-                          estimate.mode.label,
+                          'budget.${estimate.mode.name}'.tr(),
                           style: GoogleFonts.cairo(
                             color: Colors.white,
                             fontSize: 10.sp,
@@ -125,7 +126,7 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'المدة الإجمالية',
+                                  'budget.estimator.total_duration'.tr(),
                                   style: TextStyle(color: Colors.white70, fontSize: 11.sp),
                                 ),
                                 Text(
@@ -157,17 +158,17 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
                   SizedBox(height: 12.h),
                   
                   // Mini cost items
-                  _buildMiniCostRow('💡 Ideas + Script', 
+                  _buildMiniCostRow(context.tr('budget.estimator.rows.ideas_script'),
                     estimate.breakdown.ideaGeneration + estimate.breakdown.scriptWriting,
                     estimate.apiStack.scriptProvider),
-                  _buildMiniCostRow('🎨 Images (${widget.sceneCount})', 
+                  _buildMiniCostRow(context.tr('budget.estimator.rows.images', args: ['${widget.sceneCount}']),
                     estimate.breakdown.imageGeneration,
                     estimate.apiStack.imageProvider),
                   if (estimate.apiStack.videoProvider != null)
-                    _buildMiniCostRow('🎬 Video Generation', 
+                    _buildMiniCostRow(context.tr('budget.estimator.rows.video'),
                       estimate.breakdown.videoGeneration,
                       estimate.apiStack.videoProvider!),
-                  _buildMiniCostRow('🔊 Voiceover', 
+                  _buildMiniCostRow(context.tr('budget.estimator.rows.voiceover'),
                     estimate.breakdown.audioGeneration,
                     'ElevenLabs'),
                     
@@ -179,7 +180,7 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
                       Icon(Icons.touch_app, color: Colors.white38, size: 12.sp),
                       SizedBox(width: 4.w),
                       Text(
-                        'انقر لعرض التفاصيل الكاملة',
+                        'budget.estimator.tap_for_details'.tr(),
                         style: TextStyle(color: Colors.white38, fontSize: 10.sp),
                       ),
                     ],
@@ -204,7 +205,7 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
                         Icon(Icons.lightbulb_outline, color: Colors.yellowAccent, size: 14.sp),
                         SizedBox(width: 6.w),
                         Text(
-                          'اقتراحات التوفير',
+                          'budget.estimator.saving_suggestions'.tr(),
                           style: GoogleFonts.cairo(
                             color: Colors.yellowAccent,
                             fontSize: 12.sp,
@@ -222,7 +223,7 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
                           SizedBox(width: 6.w),
                           Expanded(
                             child: Text(
-                              s,
+                              _resolveSuggestion(context, s),
                               style: TextStyle(color: Colors.white70, fontSize: 10.sp),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -276,6 +277,13 @@ class _CostEstimatorCardState extends ConsumerState<CostEstimatorCard> {
         sceneCount: widget.sceneCount,
       ),
     );
+  }
+
+  String _resolveSuggestion(BuildContext context, String suggestion) {
+    final parts = suggestion.split('|');
+    final key = parts.first;
+    final args = parts.length > 1 ? parts.sublist(1) : const <String>[];
+    return context.tr(key, args: args);
   }
 
   Color _getStatusColor(double cost) {

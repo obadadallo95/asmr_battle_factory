@@ -1,4 +1,4 @@
-package com.example.asmr_battle_factory
+package com.obadadallo.asmrbattlefactory
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

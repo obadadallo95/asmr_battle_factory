@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:asmr_battle_factory/features/marketplace/domain/services/provider_recommender.dart';
 import 'package:asmr_battle_factory/features/budget/domain/models/budget_mode.dart';
 import 'package:asmr_battle_factory/config/di/injection.dart';
@@ -38,7 +39,7 @@ class RecommendationChip extends ConsumerWidget {
               Icon(Icons.lightbulb_outline, color: Colors.amberAccent, size: 16.sp),
               SizedBox(width: 8.w),
               Text(
-                'توصية ذكية | Smart Mix',
+                'marketplace_page.recommendation_title'.tr(),
                 style: GoogleFonts.cairo(
                   color: Colors.amberAccent,
                   fontSize: 12.sp,
@@ -47,26 +48,26 @@ class RecommendationChip extends ConsumerWidget {
               ),
               const Spacer(),
               Text(
-                'جودة: ${recommendation.qualityScore}/10',
+                'marketplace_page.recommendation_quality'.tr(args: ['${recommendation.qualityScore}']),
                 style: TextStyle(color: Colors.white38, fontSize: 10.sp),
               ),
             ],
           ),
           SizedBox(height: 8.h),
           Text(
-            recommendation.messageAr,
+            context.locale.languageCode == 'ar' ? recommendation.messageAr : recommendation.message,
             style: TextStyle(color: Colors.white70, fontSize: 11.sp),
           ),
           SizedBox(height: 12.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildProviderSmall(recommendation.ideaProvider, 'Ideas'),
+              _buildProviderSmall(recommendation.ideaProvider, 'marketplace_page.recommendation_ideas'.tr()),
               Icon(Icons.arrow_forward_ios, size: 10.sp, color: Colors.white24),
-              _buildProviderSmall(recommendation.imageProvider, 'Images'),
+              _buildProviderSmall(recommendation.imageProvider, 'marketplace_page.recommendation_images'.tr()),
               if (recommendation.videoProvider != null) ...[
                 Icon(Icons.arrow_forward_ios, size: 10.sp, color: Colors.white24),
-                _buildProviderSmall(recommendation.videoProvider!, 'Video'),
+                _buildProviderSmall(recommendation.videoProvider!, 'marketplace_page.recommendation_video'.tr()),
               ],
             ],
           ),

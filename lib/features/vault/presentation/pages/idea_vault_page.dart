@@ -25,15 +25,15 @@ class IdeaVaultPage extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildHeader(),
+          _buildHeader(context),
           SizedBox(height: 30.h),
           Expanded(
             child: scenariosAsync.when(
               data: (scenarios) => scenarios.isEmpty 
-                ? _buildEmptyState() 
-                : _buildVaultGrid(scenarios),
+                ? _buildEmptyState(context) 
+                : _buildVaultGrid(context, scenarios),
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (e, s) => Center(child: Text('Error: $e', style: const TextStyle(color: Colors.red))),
+              error: (e, s) => Center(child: Text('common.error'.tr(args: ['$e']), style: const TextStyle(color: Colors.red))),
             ),
           ),
         ],
@@ -41,7 +41,7 @@ class IdeaVaultPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -73,7 +73,7 @@ class IdeaVaultPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildEmptyState() {
+  Widget _buildEmptyState(BuildContext context) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -95,7 +95,7 @@ class IdeaVaultPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildVaultGrid(List<SavedScenario> scenarios) {
+  Widget _buildVaultGrid(BuildContext context, List<SavedScenario> scenarios) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,

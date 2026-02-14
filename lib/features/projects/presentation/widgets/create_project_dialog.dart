@@ -65,8 +65,9 @@ class _CreateProjectDialogState extends ConsumerState<CreateProjectDialog> {
       children: [
         Text('budget.budget'.tr(), style: TextStyle(color: Colors.white54, fontSize: 1.t)),
         SizedBox(height: 1.g),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Wrap(
+          spacing: 0.5.g,
+          runSpacing: 0.5.g,
           children: BudgetMode.values.map((mode) {
            final isSelected = _budgetMode == mode;
            return ChoiceChip(

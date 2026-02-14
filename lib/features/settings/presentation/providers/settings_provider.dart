@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/services/settings_service.dart';
 import '../../../../core/services/security/biometric_vault.dart';
+import '../../../../core/services/security/api_key_service.dart';
 import '../../../../config/di/injection.dart';
+import '../../../../features/marketplace/domain/repositories/provider_repository.dart';
+import '../../../../features/ai/data/provider_registry.dart';
 
 class SettingsState {
   final ThemeMode themeMode;
@@ -96,14 +99,23 @@ final settingsProvider = StateNotifierProvider<SettingsNotifier, SettingsState>(
   return SettingsNotifier(service, vault);
 });
 
-// Additional providers for health/status
-final connectedProvidersCountProvider = Provider<int>((ref) {
-  // Logic to count providers with keys
-  return 4; // Placeholder for now, match diagnostic
+final configuredProviderIdsProvider = FutureProvider<List<String>>((ref) async {
+  final keyService = getIt<APIKeyService>();
+  return keyService.getConfiguredProviders();
 });
 
-final apiHealthProvider = Provider<APIHealth>((ref) {
-  return const APIHealth(connected: 4, total: 5);
+// Additional providers for health/status (real data, no placeholders)
+final connectedProvidersCountProvider = FutureProvider<int>((ref) async {
+  final ids = await ref.watch(configuredProviderIdsProvider.future);
+  return ids.length;
+});
+
+final apiHealthProvider = FutureProvider<APIHealth>((ref) async {
+  final ids = await ref.watch(configuredProviderIdsProvider.future);
+  final repo = getIt<IProviderRepository>();
+  await repo.initialize();
+  final totalRequiringKeys = repo.getAll().where((p) => p.requiresKey).length;
+  return APIHealth(connected: ids.length, total: totalRequiringKeys);
 });
 
 class APIHealth {
@@ -112,5 +124,15 @@ class APIHealth {
   const APIHealth({required this.connected, required this.total});
 }
 
-final averageLatencyProvider = Provider<int>((ref) => 45);
+final averageLatencyProvider = FutureProvider<int>((ref) async {
+  final ids = await ref.watch(configuredProviderIdsProvider.future);
+  if (ids.isEmpty) return 0;
+
+  final registry = getIt<ProviderRegistry>();
+  final profiles = registry.getAllProfiles().where((p) => ids.contains(p.id)).toList();
+  if (profiles.isEmpty) return 0;
+
+  final total = profiles.fold<int>(0, (sum, p) => sum + p.speed.averageLatencyMs);
+  return (total / profiles.length).round();
+});
 final settingsSearchProvider = StateProvider<String>((ref) => '');

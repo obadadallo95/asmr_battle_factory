@@ -49,7 +49,6 @@ dependencies:
   collection: ^1.19.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
-  fluttertoast: ^9.0.0
 
 dev_dependencies:
   flutter_test:

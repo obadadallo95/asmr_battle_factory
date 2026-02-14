@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:asmr_battle_factory/core/theme/golden_ratio.dart';
 import 'package:asmr_battle_factory/core/utils/responsive_extensions.dart';
 import '../../../../core/widgets/glass_card.dart';
@@ -25,7 +26,7 @@ class BudgetDashboardCard extends ConsumerWidget {
               Row(
                 children: [
                   Text(
-                    '💰 لوحة الميزانية',
+                    'budget.dashboard.title'.tr(),
                     style: GoogleFonts.cairo(
                       color: Colors.white,
                       fontSize: 2.t,
@@ -40,7 +41,9 @@ class BudgetDashboardCard extends ConsumerWidget {
                       borderRadius: context.gBorderRadius(Factor.xs),
                     ),
                     child: Text(
-                      stats.totalSpentToday < 10 ? '✓ جيد' : '⚠️ تحذير',
+                      stats.totalSpentToday < 10
+                          ? 'budget.dashboard.status.good'.tr()
+                          : 'budget.dashboard.status.warning'.tr(),
                       style: TextStyle(color: Colors.white, fontSize: 0.t),
                     ),
                   ),
@@ -48,14 +51,14 @@ class BudgetDashboardCard extends ConsumerWidget {
               ),
               SizedBox(height: 1.g),
               
-              _buildStatRow('🔥 أنفقت اليوم:', '\$${stats.totalSpentToday.toStringAsFixed(2)}'),
-              _buildStatRow('📊 عدد الفيديوهات:', '${stats.videosGeneratedToday} فيديو'),
-              _buildStatRow('📈 متوسط التكلفة:', '\$${stats.averageCostPerVideo.toStringAsFixed(2)}'),
+              _buildStatRow('budget.dashboard.spent_today'.tr(), '\$${stats.totalSpentToday.toStringAsFixed(2)}'),
+              _buildStatRow('budget.dashboard.videos_today'.tr(), 'budget.dashboard.video_count'.tr(args: ['${stats.videosGeneratedToday}'])),
+              _buildStatRow('budget.dashboard.avg_cost'.tr(), '\$${stats.averageCostPerVideo.toStringAsFixed(2)}'),
               
               Divider(color: Colors.white12, height: 2.g),
               
-              _buildStatRow('📅 هذا الشهر:', '\$${stats.totalSpentThisMonth.toStringAsFixed(2)}'),
-              _buildStatRow('🎬 مجموع الفيديوهات:', '${stats.videosGeneratedThisMonth} فيديو'),
+              _buildStatRow('budget.dashboard.spent_month'.tr(), '\$${stats.totalSpentThisMonth.toStringAsFixed(2)}'),
+              _buildStatRow('budget.dashboard.videos_month'.tr(), 'budget.dashboard.video_count'.tr(args: ['${stats.videosGeneratedThisMonth}'])),
               
               if (stats.totalSpentThisMonth > 50) ...[
                 SizedBox(height: 1.g),
@@ -72,7 +75,7 @@ class BudgetDashboardCard extends ConsumerWidget {
                       SizedBox(width: 0.g),
                       Expanded(
                         child: Text(
-                          'اقتربت من حد الـ \$100 الشهري',
+                          'budget.dashboard.monthly_warning'.tr(),
                           style: TextStyle(color: Colors.orange, fontSize: 1.t),
                         ),
                       ),
@@ -83,7 +86,7 @@ class BudgetDashboardCard extends ConsumerWidget {
             ],
           ),
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (err, stack) => const Text('خطأ في تحميل البيانات', style: TextStyle(color: Colors.red)),
+          error: (err, stack) => Text('budget.dashboard.load_error'.tr(), style: const TextStyle(color: Colors.red)),
         ),
       ),
     );

@@ -114,10 +114,10 @@ extension ProviderCatalogEntryX on ProviderCatalogEntry {
   
   String get tierLabel {
     switch (tier) {
-      case ProviderTier.free: return 'مجاني';
-      case ProviderTier.freemium: return 'Freemium';
-      case ProviderTier.paid: return 'مدفوع';
-      case ProviderTier.openSource: return 'Open Source';
+      case ProviderTier.free: return tier.name;
+      case ProviderTier.freemium: return tier.name;
+      case ProviderTier.paid: return tier.name;
+      case ProviderTier.openSource: return tier.name;
     }
   }
   

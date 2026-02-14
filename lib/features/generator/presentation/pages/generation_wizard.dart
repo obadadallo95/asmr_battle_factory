@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../projects/presentation/providers/projects_provider.dart';
 import '../../../projects/data/models/battle_project.dart';
 import 'generation_progress_page.dart';
@@ -24,7 +25,7 @@ class GenerationWizard extends ConsumerWidget {
         children: [
           _buildStepIndicator(step),
           Expanded(
-            child: _buildStepContent(step, ref),
+            child: _buildStepContent(context, step, ref),
           ),
         ],
       ),
@@ -36,7 +37,7 @@ class GenerationWizard extends ConsumerWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Text(
-        'معالج الإنتاج الذكي',
+        'generator.wizard.title'.tr(),
         style: GoogleFonts.cairo(fontWeight: FontWeight.bold),
       ),
       leading: IconButton(
@@ -85,16 +86,16 @@ class GenerationWizard extends ConsumerWidget {
     );
   }
 
-  Widget _buildStepContent(int step, WidgetRef ref) {
+  Widget _buildStepContent(BuildContext context, int step, WidgetRef ref) {
     switch (step) {
-      case 0: return _buildStep1(ref);
-      case 1: return _buildStep2(ref);
+      case 0: return _buildStep1(context, ref);
+      case 1: return _buildStep2(context, ref);
       case 2: return _buildStep3(ref);
-      default: return _buildStep1(ref);
+      default: return _buildStep1(context, ref);
     }
   }
 
-  Widget _buildStep1(WidgetRef ref) {
+  Widget _buildStep1(BuildContext context, WidgetRef ref) {
     final projects = ref.watch(projectsProvider);
     return Padding(
       padding: EdgeInsets.all(30.w),
@@ -102,7 +103,7 @@ class GenerationWizard extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'اختر مشروعاً للبدء',
+            'generator.wizard.pick_project'.tr(),
             style: GoogleFonts.cairo(color: Colors.white, fontSize: 18.sp, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 20.h),
@@ -116,9 +117,9 @@ class GenerationWizard extends ConsumerWidget {
               ),
               itemCount: projects.length + 1,
               itemBuilder: (context, index) {
-                if (index == 0) return _buildNewGenCard(ref);
+                if (index == 0) return _buildNewGenCard(context, ref);
                 final project = projects[index - 1];
-                return _buildProjectOption(ref, project);
+                return _buildProjectOption(context, ref, project);
               },
             ),
           ),
@@ -127,7 +128,7 @@ class GenerationWizard extends ConsumerWidget {
     );
   }
 
-  Widget _buildNewGenCard(WidgetRef ref) {
+  Widget _buildNewGenCard(BuildContext context, WidgetRef ref) {
     return InkWell(
       onTap: () {
         ref.read(selectedProjectForGenProvider.notifier).state = null;
@@ -144,14 +145,14 @@ class GenerationWizard extends ConsumerWidget {
           children: [
             const Icon(Icons.add_circle_outline, color: Colors.purpleAccent, size: 40),
             SizedBox(height: 10.h),
-            Text('توليد جديد', style: GoogleFonts.cairo(color: Colors.white, fontWeight: FontWeight.bold)),
+            Text('generator.wizard.new_generation'.tr(), style: GoogleFonts.cairo(color: Colors.white, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildProjectOption(WidgetRef ref, BattleProject project) {
+  Widget _buildProjectOption(BuildContext context, WidgetRef ref, BattleProject project) {
     return InkWell(
       onTap: () {
         ref.read(selectedProjectForGenProvider.notifier).state = project;
@@ -168,14 +169,17 @@ class GenerationWizard extends ConsumerWidget {
           children: [
             Icon(Icons.movie_filter_outlined, color: Colors.white38, size: 30.sp),
             SizedBox(height: 10.h),
-            Text(project.nameAr, style: GoogleFonts.cairo(color: Colors.white, fontSize: 12.sp, fontWeight: FontWeight.bold)),
+            Text(
+              context.locale.languageCode == 'ar' ? project.nameAr : project.name,
+              style: GoogleFonts.cairo(color: Colors.white, fontSize: 12.sp, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildStep2(WidgetRef ref) {
+  Widget _buildStep2(BuildContext context, WidgetRef ref) {
     final project = ref.watch(selectedProjectForGenProvider);
     return Padding(
       padding: EdgeInsets.all(40.w),
@@ -190,14 +194,14 @@ class GenerationWizard extends ConsumerWidget {
             ),
             child: Column(
               children: [
-                Text('تأكيد تفاصيل الإنتاج', style: GoogleFonts.cairo(color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.bold)),
+                Text('generator.wizard.confirm_title'.tr(), style: GoogleFonts.cairo(color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.bold)),
                 SizedBox(height: 30.h),
-                _summaryRow('المشروع', project?.nameAr ?? 'توليد مخصص'),
-                _summaryRow('المتنافسون', project?.contestants.join(' vs ') ?? 'نمل vs نحل'),
-                _summaryRow('وضع الميزانية', project?.budgetMode.name.toUpperCase() ?? 'ECONOMY'),
+                _summaryRow('generator.wizard.summary.project'.tr(), (context.locale.languageCode == 'ar' ? project?.nameAr : project?.name) ?? 'generator.wizard.summary.custom_generation'.tr()),
+                _summaryRow('generator.wizard.summary.contestants'.tr(), project?.contestants.join(' vs ') ?? 'generator.wizard.summary.default_contestants'.tr()),
+                _summaryRow('generator.wizard.summary.budget_mode'.tr(), project != null ? context.tr('budget.${project.budgetMode.name}') : 'generator.wizard.summary.default_budget'.tr()),
                 const Divider(color: Colors.white10, height: 40),
-                _summaryRow('التكلفة التقديرية', '\$3.82', isBold: true, color: Colors.greenAccent),
-                _summaryRow('الجودة المتوقعة', 'Cinematic High', isBold: true, color: Colors.purpleAccent),
+                _summaryRow('generator.wizard.summary.estimated_cost'.tr(), '\$3.82', isBold: true, color: Colors.greenAccent),
+                _summaryRow('generator.wizard.summary.expected_quality'.tr(), 'generator.wizard.summary.cinematic_high'.tr(), isBold: true, color: Colors.purpleAccent),
               ],
             ),
           ),
@@ -211,7 +215,7 @@ class GenerationWizard extends ConsumerWidget {
                 backgroundColor: Colors.purpleAccent,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
               ),
-              child: Text('بدأ الإنتاج الآن ⚡', style: GoogleFonts.cairo(fontSize: 18.sp, fontWeight: FontWeight.bold, color: Colors.white)),
+              child: Text('generator.wizard.start_now'.tr(), style: GoogleFonts.cairo(fontSize: 18.sp, fontWeight: FontWeight.bold, color: Colors.white)),
             ),
           ),
         ],

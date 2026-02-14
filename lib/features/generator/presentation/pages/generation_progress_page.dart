@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class GenerationProgressPage extends StatelessWidget {
   const GenerationProgressPage({super.key});
@@ -18,7 +19,7 @@ class GenerationProgressPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 40.w, vertical: 30.h),
               child: Column(
                 children: [
-                  _buildHeader(),
+                  _buildHeader(context),
                   const Spacer(),
                   _buildProgressVisualizer(),
                   const Spacer(),
@@ -52,15 +53,15 @@ class GenerationProgressPage extends StatelessWidget {
      .shimmer(duration: 3.seconds, color: Colors.purple.withValues(alpha: 0.05));
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Column(
       children: [
         Text(
-          'جاري إنتاج الملحمة...',
+          'generator.progress.title'.tr(),
           style: GoogleFonts.cairo(color: Colors.white, fontSize: 28.sp, fontWeight: FontWeight.bold),
         ),
         Text(
-          'Creating the "Ant vs Bee" Epic Battle',
+          'generator.progress.subtitle'.tr(),
           style: GoogleFonts.montserrat(color: Colors.white38, fontSize: 14.sp),
         ),
       ],
@@ -70,11 +71,11 @@ class GenerationProgressPage extends StatelessWidget {
   Widget _buildProgressVisualizer() {
     return Column(
       children: [
-        _buildStageItem('توليد السيناريو والأفكار', 'Script & Ideas', true, true),
+        _buildStageItem('generator.progress.stages.script_ar'.tr(), 'generator.progress.stages.script_en'.tr(), true, true),
         _buildConnector(true),
-        _buildStageItem('توليد المشاهد البصرية', 'Visual Scenes (2/4)', true, false),
+        _buildStageItem('generator.progress.stages.visual_ar'.tr(), 'generator.progress.stages.visual_en'.tr(args: ['2', '4']), true, false),
         _buildConnector(false),
-        _buildStageItem('تحريك الفيديو والإنتاج', 'Video Rendering', false, false),
+        _buildStageItem('generator.progress.stages.render_ar'.tr(), 'generator.progress.stages.render_en'.tr(), false, false),
       ],
     );
   }
@@ -132,7 +133,7 @@ class GenerationProgressPage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('التكلفة الحقيقية الآن', style: GoogleFonts.cairo(color: Colors.white38, fontSize: 12.sp)),
+              Text('generator.progress.live_cost'.tr(), style: GoogleFonts.cairo(color: Colors.white38, fontSize: 12.sp)),
               Text('\$0.22', style: GoogleFonts.jetBrainsMono(color: Colors.white, fontSize: 24.sp, fontWeight: FontWeight.bold)),
             ],
           ),
@@ -150,7 +151,7 @@ class GenerationProgressPage extends StatelessWidget {
     return TextButton(
       onPressed: () => Navigator.pop(context),
       child: Text(
-        'إلغاء العملية (استرداد التكلفة المتبقية)',
+        'generator.progress.cancel'.tr(),
         style: GoogleFonts.cairo(color: Colors.redAccent, fontSize: 14.sp),
       ),
     );

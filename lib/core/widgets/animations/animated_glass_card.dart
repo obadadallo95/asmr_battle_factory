@@ -7,12 +7,14 @@ class AnimatedGlassCard extends StatefulWidget {
   final Widget child;
   final double? width;
   final double? height;
+  final EdgeInsetsGeometry? padding;
   final VoidCallback? onTap;
 
   const AnimatedGlassCard({
     required this.child,
     this.width,
     this.height,
+    this.padding,
     this.onTap,
     super.key,
   });
@@ -37,6 +39,7 @@ class _AnimatedGlassCardState extends State<AnimatedGlassCard> {
         child: GlassCard(
           width: widget.width,
           height: widget.height,
+          padding: widget.padding,
           child: widget.child,
         )
             .animate(onPlay: (controller) => controller.repeat(reverse: true))

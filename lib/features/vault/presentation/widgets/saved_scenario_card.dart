@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:asmr_battle_factory/features/vault/data/models/saved_scenario.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:asmr_battle_factory/features/contestants/presentation/providers/contestants_provider.dart';
@@ -29,7 +30,7 @@ class SavedScenarioCard extends ConsumerWidget {
                 _buildContestantPreview(ref),
                 SizedBox(height: 15.h),
                 Text(
-                  scenario.titleAr,
+                  context.locale.languageCode == 'ar' ? scenario.titleAr : scenario.titleEn,
                   style: GoogleFonts.cairo(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -37,7 +38,7 @@ class SavedScenarioCard extends ConsumerWidget {
 // ... (middle content same)
                 SizedBox(height: 5.h),
                 Text(
-                  scenario.briefDescriptionAr,
+                  context.locale.languageCode == 'ar' ? scenario.briefDescriptionAr : scenario.briefDescriptionEn,
                   style: GoogleFonts.cairo(color: Colors.white38, fontSize: 12.sp),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -46,7 +47,7 @@ class SavedScenarioCard extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _buildTwistBadge(),
+                    _buildTwistBadge(context),
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -54,7 +55,7 @@ class SavedScenarioCard extends ConsumerWidget {
                         padding: EdgeInsets.symmetric(horizontal: 15.w),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
                       ),
-                      child: Text('بدء الإنتاج', style: GoogleFonts.cairo(color: Colors.purpleAccent, fontSize: 11.sp)),
+                      child: Text('generator.initiate_btn'.tr(), style: GoogleFonts.cairo(color: Colors.purpleAccent, fontSize: 11.sp)),
                     ),
                   ],
                 ),
@@ -96,7 +97,7 @@ class SavedScenarioCard extends ConsumerWidget {
     );
   }
 
-  Widget _buildTwistBadge() {
+  Widget _buildTwistBadge(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
       decoration: BoxDecoration(
@@ -108,7 +109,7 @@ class SavedScenarioCard extends ConsumerWidget {
           const Icon(Icons.auto_awesome, color: Colors.amber, size: 12),
           SizedBox(width: 5.w),
           Text(
-            'Twist: ${scenario.twistLevel}',
+            'vault.twist_label'.tr(args: ['${scenario.twistLevel}']),
             style: GoogleFonts.jetBrainsMono(color: Colors.amber, fontSize: 10.sp, fontWeight: FontWeight.bold),
           ),
         ],

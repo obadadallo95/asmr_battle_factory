@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'glass_card.dart';
 
 class LegalDocumentViewer extends StatelessWidget {
@@ -24,7 +25,13 @@ class LegalDocumentViewer extends StatelessWidget {
         title: Text(title, style: GoogleFonts.cairo()),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () {
+            if (Navigator.of(context).canPop()) {
+              Navigator.of(context).pop();
+            } else {
+              context.go('/app/settings');
+            }
+          },
         ),
       ),
       body: Container(

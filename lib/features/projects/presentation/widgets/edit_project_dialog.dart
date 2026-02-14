@@ -67,8 +67,9 @@ class _EditProjectDialogState extends ConsumerState<EditProjectDialog> {
   }
 
   Widget _buildBudgetSelector() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Wrap(
+      spacing: 0.5.g,
+      runSpacing: 0.5.g,
       children: BudgetMode.values.map((mode) {
         return ChoiceChip(
           label: Text('budget.${mode.name}'.tr()),

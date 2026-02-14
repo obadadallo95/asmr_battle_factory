@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/theme/golden_ratio.dart';
-import '../../../../core/utils/responsive_extensions.dart';
 import '../../../../core/widgets/glass_card.dart';
 import '../providers/settings_provider.dart';
 
@@ -13,49 +11,56 @@ class SystemStatusHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final apiHealth = ref.watch(apiHealthProvider);
-    final latency = ref.watch(averageLatencyProvider);
+    final apiHealthAsync = ref.watch(apiHealthProvider);
+    final latencyAsync = ref.watch(averageLatencyProvider);
+    final apiHealth = apiHealthAsync.value ?? const APIHealth(connected: 0, total: 0);
+    final latency = latencyAsync.value ?? 0;
     
     return GlassCard(
-      padding: context.gPadding(Factor.md),
+      padding: const EdgeInsets.all(12),
       color: Colors.green.withValues(alpha: 0.1),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _StatusPulse(),
-              SizedBox(width: 1.g),
+              const SizedBox(width: 8),
               Text(
                 'settings.status.online'.tr(),
                 style: GoogleFonts.cairo(
-                  fontSize: 2.t,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w800,
                   color: Colors.greenAccent,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                '${apiHealth.connected}/${apiHealth.total} APIs',
+                style: GoogleFonts.sourceCodePro(
+                  fontSize: 11,
+                  color: Colors.white70,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 2.g),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: [
-              Expanded(
-                child: _StatusItem(
-                  label: 'settings.status.apis'.tr(),
-                  value: '${apiHealth.connected}/${apiHealth.total}',
-                  icon: Icons.api,
-                  color: Colors.cyanAccent,
-                ),
+              _StatusItem(
+                label: 'settings.status.apis'.tr(),
+                value: '${apiHealth.connected}/${apiHealth.total}',
+                icon: Icons.api,
+                color: Colors.cyanAccent,
               ),
-              Container(width: 1, height: 4.g, color: Colors.white12),
-              Expanded(
-                child: _StatusItem(
-                  label: 'settings.status.latency'.tr(),
-                  value: '${latency}ms',
-                  icon: Icons.speed,
-                  color: Colors.orangeAccent,
-                ),
+              _StatusItem(
+                label: 'settings.status.latency'.tr(),
+                value: '${latency}ms',
+                icon: Icons.speed,
+                color: Colors.orangeAccent,
               ),
             ],
           ),
@@ -98,16 +103,16 @@ class _StatusPulseState extends State<_StatusPulse> with SingleTickerProviderSta
       animation: _animation,
       builder: (context, child) {
         return Container(
-          width: 1.g,
-          height: 1.g,
+          width: 10,
+          height: 10,
           decoration: BoxDecoration(
             color: Colors.greenAccent.withValues(alpha: _animation.value),
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
                 color: Colors.greenAccent.withValues(alpha: 0.5 * _animation.value),
-                blurRadius: 1.g * _animation.value,
-                spreadRadius: 2,
+                blurRadius: 8 * _animation.value,
+                spreadRadius: 1,
               ),
             ],
           ),
@@ -132,26 +137,36 @@ class _StatusItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.04),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.white12),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, color: color.withValues(alpha: 0.7), size: 2.t),
-        SizedBox(height: 0.g),
+        Icon(icon, color: color.withValues(alpha: 0.9), size: 16),
+        const SizedBox(width: 6),
         Text(
           value,
           style: GoogleFonts.sourceCodePro(
             color: Colors.white,
-            fontSize: 2.t,
-            fontWeight: FontWeight.bold,
+            fontSize: 12,
+            fontWeight: FontWeight.w800,
           ),
         ),
+        const SizedBox(width: 6),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white54,
-            fontSize: 1.t,
+            fontSize: 11,
           ),
         ),
       ],
+      ),
     );
   }
 }

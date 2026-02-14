@@ -21,44 +21,70 @@ class FunctionCategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     if (providers.isEmpty) return const SizedBox.shrink();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-          child: Row(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isCompact = constraints.maxWidth < 420;
+        final cardWidth = (constraints.maxWidth * (isCompact ? 0.74 : 0.48)).clamp(190.0, 270.0);
+        final cardHeight = isCompact ? 176.0 : 184.0;
+
+        return Padding(
+          padding: EdgeInsets.only(bottom: 14.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: GoogleFonts.cairo(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.cairo(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.06),
+                        borderRadius: BorderRadius.circular(999),
+                        border: Border.all(color: Colors.white12),
+                      ),
+                      child: Text(
+                        context.tr('marketplace_page.providers_count', args: [providers.length.toString()]),
+                        style: GoogleFonts.cairo(
+                          fontSize: 11.sp,
+                          color: Colors.white60,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const Spacer(),
-              Text(
-                context.tr('marketplace_page.providers_count', args: [providers.length.toString()]),
-                style: GoogleFonts.cairo(
-                  fontSize: 12.sp,
-                  color: Colors.white38,
+              SizedBox(
+                height: cardHeight,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  itemCount: providers.length,
+                  separatorBuilder: (_, __) => SizedBox(width: 8.w),
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      width: cardWidth,
+                      child: ProviderCard(provider: providers[index]),
+                    );
+                  },
                 ),
               ),
             ],
           ),
-        ),
-        SizedBox(
-          height: 240.h,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            itemCount: providers.length,
-            itemBuilder: (context, index) {
-              return ProviderCard(provider: providers[index]);
-            },
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }

@@ -31,7 +31,7 @@ class MyAPIPortfolioPage extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          'محفظة الـ APIs الخاصة بك',
+          'portfolio.title'.tr(),
           style: GoogleFonts.cairo(fontWeight: FontWeight.bold),
         ),
       ),
@@ -59,7 +59,7 @@ class MyAPIPortfolioPage extends ConsumerWidget {
             Icon(Icons.account_balance_wallet_outlined, color: Colors.white24, size: 60.sp),
             SizedBox(height: 16.h),
             Text(
-              'لا توجد مفاتيح API مفعلة بعد',
+              'portfolio.empty'.tr(),
               style: GoogleFonts.cairo(color: Colors.white38),
             ),
             SizedBox(height: 20.h),
@@ -76,13 +76,13 @@ class MyAPIPortfolioPage extends ConsumerWidget {
       padding: EdgeInsets.all(20.w),
       children: [
         Text(
-          'الخدمات المفعلة',
+          'portfolio.active_services'.tr(),
           style: GoogleFonts.cairo(color: Colors.white, fontSize: 18.sp, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 16.h),
         ...providers.map((p) => _buildProviderListItem(context, p, ref)),
         SizedBox(height: 30.h),
-        _buildStatsCard(),
+        _buildStatsCard(context),
       ],
     ).animate().fadeIn();
   }
@@ -101,8 +101,8 @@ class MyAPIPortfolioPage extends ConsumerWidget {
             ),
             child: Icon(p.tierIcon, color: p.brandColorValue, size: 20.sp),
           ),
-          title: Text(p.nameAr, style: GoogleFonts.cairo(color: Colors.white, fontWeight: FontWeight.bold)),
-          subtitle: Text('Status: Active', style: TextStyle(color: Colors.greenAccent, fontSize: 10.sp)),
+          title: Text(context.locale.languageCode == 'ar' ? p.nameAr : p.name, style: GoogleFonts.cairo(color: Colors.white, fontWeight: FontWeight.bold)),
+          subtitle: Text('portfolio.status_active'.tr(), style: TextStyle(color: Colors.greenAccent, fontSize: 10.sp)),
           trailing: IconButton(
             icon: Icon(Icons.delete_outline, color: Colors.redAccent, size: 20.sp),
             onPressed: () async {
@@ -116,7 +116,7 @@ class MyAPIPortfolioPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildStatsCard() {
+  Widget _buildStatsCard(BuildContext context) {
     return GlassCard(
       color: Colors.blue.withValues(alpha: 0.05),
       child: Padding(
@@ -125,16 +125,16 @@ class MyAPIPortfolioPage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'ملخص الاستهلاك',
+              'portfolio.usage_summary'.tr(),
               style: GoogleFonts.cairo(color: Colors.white, fontSize: 14.sp, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 12.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _stat('إجمالي الطلبات', '450'),
-                _stat('التكلفة التقريبية', '\$2.45'),
-                _stat('توفير الميزانية', '15%'),
+                _stat('portfolio.total_requests'.tr(), '450'),
+                _stat('portfolio.estimated_cost'.tr(), '\$2.45'),
+                _stat('portfolio.budget_saving'.tr(), '15%'),
               ],
             ),
           ],

@@ -46,7 +46,8 @@
     "collapse": "Collapse Menu",
     "search_hint": "Search for a project or video...",
     "spent_today": "Spent Today",
-    "marketplace_explore": "Explore Marketplace"
+    "marketplace_explore": "Explore Marketplace",
+    "back_again_to_exit": "Press back again to exit"
   },
   "home": "Home",
   "generate": "Generate",
@@ -86,6 +87,30 @@
       "twist_level": "Twist Level:",
       "save_to_vault": "Save to Vault",
       "start_production": "Start Production Now ⚔️"
+    },
+    "studio": {
+      "subtitle": "Follow the steps in order and stay focused",
+      "meta": {
+        "selected": "Selected: {}/{}",
+        "winner": "Winner: {}",
+        "mode": "Mode: {}"
+      },
+      "steps": {
+        "contestants": "1) Contestants",
+        "selected": "2) Selected",
+        "configure": "3) Configure & Run"
+      },
+      "sections": {
+        "pick_title": "Pick contestants",
+        "review_title": "Review selected lineup",
+        "review_subtitle": "Confirm lineup before configuration",
+        "settings_title": "Battle settings"
+      }
+    },
+    "selected": {
+      "clear_all": "Clear all",
+      "count": "{}/{}",
+      "label": "Selected"
     }
   },
   "vault": {
@@ -95,7 +120,8 @@
     "empty": {
       "title": "Vault is currently empty",
       "desc": "Generate batches of ideas to save tokens and try different scenarios"
-    }
+    },
+    "twist_label": "Twist: {}"
   },
   "about": {
     "studio_title": "The Director's Workstation",
@@ -135,6 +161,7 @@
     }
   },
   "categories": {
+    "all": "All",
     "insects": "Insects",
     "wild_animals": "Wild Animals",
     "marine_life": "Marine Life",
@@ -155,7 +182,9 @@
     "cache_cleared": "Cache Cleared",
     "api_key_saved": "{} API Key Saved Securely 🔒",
     "launch_error": "Could not launch {}",
-    "back_to_studio": "Back to Studio"
+    "back_to_studio": "Back to Studio",
+    "oops": "Oops!",
+    "try_again": "Try Again"
   },
   "preview": {
     "title": "Preview",
@@ -213,6 +242,42 @@
       "another_btn": "Create Another Battle",
       "scene_label": "Scene {}",
       "audio_cue": "Audio: {}"
+    },
+    "contestant": {
+      "name_hint": "Name (e.g. Mecha Ant)",
+      "str": "STR: {}"
+    },
+    "wizard": {
+      "title": "Smart Production Wizard",
+      "pick_project": "Pick a project to begin",
+      "new_generation": "New generation",
+      "confirm_title": "Confirm production details",
+      "start_now": "Start production now ⚡",
+      "summary": {
+        "project": "Project",
+        "custom_generation": "Custom generation",
+        "contestants": "Contestants",
+        "default_contestants": "Ant vs Bee",
+        "budget_mode": "Budget mode",
+        "default_budget": "Economy",
+        "estimated_cost": "Estimated cost",
+        "expected_quality": "Expected quality",
+        "cinematic_high": "Cinematic High"
+      }
+    },
+    "progress": {
+      "title": "Building your epic...",
+      "subtitle": "Creating the cinematic battle now",
+      "live_cost": "Live cost now",
+      "cancel": "Cancel process (refund remaining cost)",
+      "stages": {
+        "script_ar": "Script and idea generation",
+        "script_en": "Script & Ideas",
+        "visual_ar": "Visual scene generation",
+        "visual_en": "Visual Scenes ({}/{})",
+        "render_ar": "Video animation and production",
+        "render_en": "Video Rendering"
+      }
     }
   },
   "marketplace_page": {
@@ -265,7 +330,27 @@
     "key_required": "Key Required?",
     "price_label": "Price: {}",
     "recent_battles": "Recent Battles",
-    "no_battles": "No battles yet"
+    "no_battles": "No battles yet",
+    "subtitle": "Clean and fast API discovery",
+    "empty_hint": "Try changing search or clearing filters",
+    "type_music": "Music",
+    "type_voice_clone": "Voice Clone",
+    "type_upscaling": "Upscaling",
+    "type_face_swap": "Face Swap",
+    "type_subtitles": "Subtitles",
+    "cost_paid": "Paid",
+    "cost_open_source": "Open Source",
+    "compare_feature": "Feature",
+    "compare_price": "Price",
+    "compare_quality": "Quality",
+    "compare_speed": "Speed",
+    "compare_availability": "Availability (Syria)",
+    "compare_requires_key": "Requires key",
+    "recommendation_title": "Smart Recommendation | Smart Mix",
+    "recommendation_quality": "Quality: {}/10",
+    "recommendation_ideas": "Ideas",
+    "recommendation_images": "Images",
+    "recommendation_video": "Video"
   },
   "marketplace": {
     "website": "Visit Website",
@@ -343,14 +428,19 @@
   },
   "winner_mode": {
     "title": "Winner Selection",
+    "aiDecided": "Auto (AI decides)",
     "unexpected": "Unexpected",
     "random": "Random",
+    "userSelected": "I choose the winner",
+    "scriptBased": "Script-based",
     "underdog": "Underdog Wins",
     "favorite": "Favorite Wins"
   },
   "battle_type": {
     "title": "Battle Format",
     "tournament": "Tournament",
+    "battleRoyale": "Battle Royale",
+    "revengeSeries": "Revenge Series",
     "royale": "Battle Royale",
     "revenge": "Revenge Arc",
     "showcase": "Showcase"
@@ -391,7 +481,9 @@
       "unlocked": "Not Protected"
     },
     "language": {
-      "title": "Language"
+      "title": "Language",
+      "arabic": "Arabic",
+      "english": "English"
     },
     "status": {
       "online": "System Online",
@@ -399,7 +491,26 @@
       "latency": "Avg Latency"
     },
     "danger_zone": {
-      "title": "DANGER ZONE"
+      "title": "DANGER ZONE",
+      "subtitle": "These actions cannot be undone."
+    },
+    "sections": {
+      "control": "Control Panel",
+      "legal": "Legal and Information"
+    },
+    "hero_subtitle": "Faster settings, cleaner layout, clearer experience.",
+    "api_vault": {
+      "title": "API Keys Vault",
+      "subtitle": "Add provider keys used for content production. Viewing/editing/deleting is protected by biometrics.",
+      "connected": "Saved keys: {}",
+      "key_hint": "Enter {} key",
+      "enter_key": "Enter API Key",
+      "biometric_secured": "Biometric secured 🔒",
+      "auth_required": "Biometric verification is required before saving",
+      "auth_view_reason": "Authenticate to view/edit {} key",
+      "auth_save_reason": "Authenticate to save {} key",
+      "auth_delete_reason": "Authenticate to delete {} key",
+      "key_deleted": "{} key deleted"
     },
     "clear_cache": "Clear Cache",
     "clear_cache_desc": "Free up storage space",
@@ -407,6 +518,35 @@
     "reset_all_desc": "Erase all settings and data",
     "search": {
       "hint": "Search settings..."
+    },
+    "conductor": {
+      "sections": {
+        "current_intelligence": "Current Intelligence",
+        "neural_pipeline": "Neural Pipeline",
+        "active_engines": "Active Engines"
+      },
+      "strategy_title": "Balanced Strategy",
+      "strategy_desc": "Optimizing creative depth and execution speed across all active modules.",
+      "pipeline": {
+        "text": "Text",
+        "scene": "Scene",
+        "voice": "Voice"
+      },
+      "latency": "Latency: {}ms",
+      "tiers": {
+        "speed": {
+          "ultra": "Ultra",
+          "fast": "Fast",
+          "standard": "Standard",
+          "slow": "Slow"
+        },
+        "cost": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "premium": "Premium"
+        }
+      }
     }
   },
   "hold_to_confirm": "Hold to confirm",
@@ -431,5 +571,72 @@
   "history": {
     "title": "Recent Battles",
     "empty": "No battles yet. Generate your first battle!"
+  },
+  "portfolio": {
+    "title": "Your API Portfolio",
+    "empty": "No API keys activated yet",
+    "active_services": "Active services",
+    "status_active": "Status: Active",
+    "usage_summary": "Usage summary",
+    "total_requests": "Total requests",
+    "estimated_cost": "Estimated cost",
+    "budget_saving": "Budget saving"
+  },
+  "legal": {
+    "load_error": "Could not load the document. Please try again later."
+  },
+  "budget": {
+    "budget": "Budget",
+    "economy": "Economy",
+    "balanced": "Balanced",
+    "premium": "Premium",
+    "custom": "Custom",
+    "dashboard": {
+      "title": "💰 Budget Dashboard",
+      "spent_today": "🔥 Spent today:",
+      "videos_today": "📊 Videos today:",
+      "avg_cost": "📈 Average cost:",
+      "spent_month": "📅 This month:",
+      "videos_month": "🎬 Total videos:",
+      "video_count": "{} videos",
+      "monthly_warning": "You are close to the $100 monthly limit",
+      "load_error": "Error loading data",
+      "status": {
+        "good": "✓ Good",
+        "warning": "⚠️ Warning"
+      }
+    },
+    "estimator": {
+      "title": "💰 Cost Estimate",
+      "total_duration": "Total duration",
+      "tap_for_details": "Tap to view full details",
+      "saving_suggestions": "Saving suggestions",
+      "rows": {
+        "ideas_script": "💡 Ideas + Script",
+        "images": "🎨 Images ({})",
+        "video": "🎬 Video generation",
+        "voiceover": "🔊 Voiceover"
+      }
+    },
+    "breakdown": {
+      "title": "📊 Full Cost Breakdown",
+      "step": "Step {}",
+      "idea_title": "Idea generation",
+      "idea_details": "512 tokens",
+      "script_title": "Script writing",
+      "script_details": "2048 tokens",
+      "image_title": "Image generation",
+      "image_details": "{} images",
+      "video_title": "Video generation",
+      "video_details": "{} seconds",
+      "voice_title": "Voiceover",
+      "voice_details": "~500 chars",
+      "total": "Grand total",
+      "saving_suggestions": "💡 Saving suggestions:"
+    },
+    "suggestions": {
+      "use_groq": "Use Groq for idea generation (save {} USD)",
+      "economy_mode": "Switch to economy mode (images only) to save {} USD"
+    }
   }
 }

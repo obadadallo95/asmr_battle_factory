@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:asmr_battle_factory/features/configurator/presentation/pages/battle_configurator_page.dart';
 import 'package:asmr_battle_factory/features/contestants/presentation/providers/contestants_provider.dart';
 
@@ -50,7 +51,7 @@ class SelectedContestantsBar extends ConsumerWidget {
             SizedBox(width: 10.w),
             TextButton(
               onPressed: () => ref.read(battleConfigProvider.notifier).update((s) => s.copyWith(selectedContestantIds: [])),
-              child: Text('مسح الكل', style: GoogleFonts.cairo(color: Colors.redAccent, fontSize: 12.sp)),
+              child: Text('configurator.selected.clear_all'.tr(), style: GoogleFonts.cairo(color: Colors.redAccent, fontSize: 12.sp)),
             ),
           ],
         ],
@@ -63,10 +64,10 @@ class SelectedContestantsBar extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          '$count/8',
+          'configurator.selected.count'.tr(args: ['$count', '8']),
           style: GoogleFonts.jetBrainsMono(color: Colors.purpleAccent, fontSize: 18.sp, fontWeight: FontWeight.bold),
         ),
-        Text('مختارون', style: GoogleFonts.cairo(color: Colors.white38, fontSize: 10.sp)),
+        Text('configurator.selected.label'.tr(), style: GoogleFonts.cairo(color: Colors.white38, fontSize: 10.sp)),
       ],
     );
   }

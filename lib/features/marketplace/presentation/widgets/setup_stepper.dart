@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:asmr_battle_factory/core/utils/url_launcher_helper.dart';
 import 'package:asmr_battle_factory/config/di/injection.dart';
 import 'package:asmr_battle_factory/core/services/security/biometric_vault.dart';
+import 'package:asmr_battle_factory/core/services/security/api_key_service.dart';
 import 'package:asmr_battle_factory/features/marketplace/domain/entities/provider_catalog_entry.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:asmr_battle_factory/features/marketplace/presentation/providers/marketplace_provider.dart';
+import 'package:asmr_battle_factory/features/marketplace/presentation/widgets/my_applications_section.dart';
+import 'package:asmr_battle_factory/features/settings/presentation/providers/settings_provider.dart';
 
-class SetupStepper extends StatefulWidget {
+class SetupStepper extends ConsumerStatefulWidget {
   final ProviderCatalogEntry provider;
 
   const SetupStepper({super.key, required this.provider});
 
   @override
-  State<SetupStepper> createState() => _SetupStepperState();
+  ConsumerState<SetupStepper> createState() => _SetupStepperState();
 }
 
-class _SetupStepperState extends State<SetupStepper> {
+class _SetupStepperState extends ConsumerState<SetupStepper> {
   final TextEditingController _apiKeyController = TextEditingController();
   bool _isSecure = true;
   bool _isLoading = false;
@@ -147,7 +151,10 @@ class _SetupStepperState extends State<SetupStepper> {
                minimumSize: Size(double.infinity, 50.h),
              ),
              onPressed: () {
-               Fluttertoast.showToast(msg: context.tr('marketplace_page.activate_success'));
+               if (!mounted) return;
+               ScaffoldMessenger.of(context).showSnackBar(
+                 SnackBar(content: Text(context.tr('marketplace_page.activate_success'))),
+               );
                Navigator.pop(context);
              },
              child: Text('✅ ${context.tr('marketplace_page.one_tap_btn')}'),
@@ -208,19 +215,33 @@ class _SetupStepperState extends State<SetupStepper> {
     setState(() => _isLoading = true);
     
     try {
+      final authenticated = await getIt<BiometricVault>().authenticate(
+        reason: 'settings.api_vault.auth_save_reason'.tr(args: [widget.provider.id]),
+      );
+      if (!authenticated) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('settings.api_vault.auth_required'.tr())),
+          );
+        }
+        return;
+      }
+
       await getIt<BiometricVault>().secureApiKey(widget.provider.id, key);
+      await getIt<APIKeyService>().saveKey(widget.provider.id, key);
+      ref.invalidate(configuredProviderIdsProvider);
+      ref.invalidate(providerKeyFutureProvider(widget.provider.id));
+      ref.invalidate(configuredProvidersProvider);
       if (mounted) {
-        Fluttertoast.showToast(
-          msg: context.tr('marketplace_page.save_success'),
-          backgroundColor: Colors.green,
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(context.tr('marketplace_page.save_success'))),
         );
         Navigator.pop(context); // Close sheet
       }
     } catch (e) {
       if (mounted) {
-        Fluttertoast.showToast(
-          msg: context.tr('marketplace_page.save_fail', args: [e.toString()]),
-          backgroundColor: Colors.red,
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(context.tr('marketplace_page.save_fail', args: [e.toString()]))),
         );
       }
     } finally {

@@ -29,6 +29,14 @@ class _AboutPageState extends State<AboutPage> {
     if (mounted) setState(() => _version = '${info.version} (${info.buildNumber})');
   }
 
+  void _handleBack(BuildContext context) {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    } else {
+      context.go('/app/settings');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +53,7 @@ class _AboutPageState extends State<AboutPage> {
             ),
             child: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
           ),
-          onPressed: () => context.pop(),
+          onPressed: () => _handleBack(context),
         ),
         title: Text(
           context.tr('navigation.about'),

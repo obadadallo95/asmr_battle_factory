@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -49,25 +48,34 @@ class ProjectsPage extends ConsumerWidget {
   }
 
   Widget _buildHeader(BuildContext context, WidgetRef ref) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isCompact = constraints.maxWidth < 420;
+
+        return Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          runSpacing: 1.g,
+          spacing: 1.g,
           children: [
             Text(
               'projects.my_projects'.tr(),
               style: GoogleFonts.cairo(color: Colors.white, fontSize: 3.t, fontWeight: FontWeight.bold),
             ),
+            SizedBox(
+              width: isCompact ? double.infinity : null,
+              child: ElevatedButton.icon(
+                onPressed: () => showDialog(context: context, builder: (_) => const CreateProjectDialog()),
+                icon: const Icon(Icons.add),
+                label: Text('projects.new_empty'.tr()),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purpleAccent,
+                  foregroundColor: Colors.white,
+                ),
+              ),
+            ),
           ],
-        ),
-        ElevatedButton.icon(
-          onPressed: () => showDialog(context: context, builder: (_) => CreateProjectDialog()),
-          icon: const Icon(Icons.add),
-          label: Text('projects.new_empty'.tr()),
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.purpleAccent, foregroundColor: Colors.white),
-        ),
-      ],
+        );
+      },
     );
   }
 
@@ -90,20 +98,26 @@ class ProjectsPage extends ConsumerWidget {
   }
 
   Widget _buildGrid(BuildContext context, List<BattleProject> projects) {
-    return SliverGrid(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: ScreenUtil().screenWidth > 600 ? 3 : 2,
-        crossAxisSpacing: 1.g,
-        mainAxisSpacing: 1.g,
-        childAspectRatio: 0.85,
-      ),
-      delegate: SliverChildBuilderDelegate(
-        (context, index) => ProjectCard(project: projects[index])
-            .animate()
-            .fadeIn(duration: 400.ms, delay: (index * 50).ms)
-            .slideY(begin: 0.1, end: 0),
-        childCount: projects.length,
-      ),
+    return SliverLayoutBuilder(
+      builder: (context, constraints) {
+        final maxExtent = (constraints.crossAxisExtent * 0.5).clamp(220.0, 320.0);
+
+        return SliverGrid(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: maxExtent,
+            crossAxisSpacing: 1.g,
+            mainAxisSpacing: 1.g,
+            childAspectRatio: 0.74,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => ProjectCard(project: projects[index])
+                .animate()
+                .fadeIn(duration: 400.ms, delay: (index * 50).ms)
+                .slideY(begin: 0.1, end: 0),
+            childCount: projects.length,
+          ),
+        );
+      },
     );
   }
 

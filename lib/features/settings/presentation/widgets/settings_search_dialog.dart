@@ -16,7 +16,7 @@ class SettingsSearchDialog extends ConsumerWidget {
       _SettingItem(
         title: 'settings_page.ai_brains'.tr(),
         icon: Icons.psychology,
-        route: '/settings/conductor',
+        route: '/settings/api-keys',
       ),
       _SettingItem(
         title: 'settings_page.about_app'.tr(),
@@ -85,13 +85,10 @@ class SettingsSearchDialog extends ConsumerWidget {
                     title: Text(item.title, style: const TextStyle(color: Colors.white)),
                     trailing: const Icon(Icons.arrow_forward_ios, size: 14, color: Colors.white30),
                     onTap: () {
+                      final router = GoRouter.of(context);
                       Navigator.pop(context); // Close dialog
                       if (item.route.isNotEmpty) {
-                        if (item.route == '/settings/about') {
-                          context.push('/settings/about/developer');
-                        } else {
-                          context.push(item.route);
-                        }
+                        router.go(item.route);
                       }
                     },
                   );

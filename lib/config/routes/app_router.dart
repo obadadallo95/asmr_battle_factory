@@ -12,6 +12,7 @@ import '../../features/settings/presentation/pages/legal/privacy_policy_page.dar
 import '../../features/settings/presentation/pages/legal/terms_of_service_page.dart';
 import '../../features/settings/presentation/pages/legal/ip_rights_page.dart';
 import '../../features/settings/presentation/pages/ai_conductor_page.dart';
+import '../../features/settings/presentation/pages/api_keys_page.dart';
 import '../../features/preview/presentation/preview_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/marketplace/presentation/pages/api_marketplace_page.dart';
@@ -102,6 +103,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/settings/conductor',
         pageBuilder: (context, state) => _buildSharedAxisTransition(context, state, const AIConductorPage(), SharedAxisTransitionType.scaled),
+      ),
+      GoRoute(
+        path: '/settings/api-keys',
+        pageBuilder: (context, state) => _buildSharedAxisTransition(context, state, const APIKeysPage(), SharedAxisTransitionType.scaled),
       ),
       GoRoute(
         path: '/marketplace',

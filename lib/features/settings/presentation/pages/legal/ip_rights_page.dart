@@ -27,14 +27,14 @@ class _IntellectualPropertyPageState extends State<IntellectualPropertyPage> {
       if (mounted) setState(() => _content = data);
     } catch (e) {
       debugPrint('Error loading IP rights: $e');
-      if (mounted) setState(() => _content = 'Error loading document.');
+      if (mounted) setState(() => _content = context.tr('legal.load_error'));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return LegalDocumentViewer(
-      title: context.locale.languageCode == 'ar' ? 'الملكية الفكرية' : 'IP Rights',
+      title: 'settings_page.ip_rights'.tr(),
       content: _content,
     );
   }

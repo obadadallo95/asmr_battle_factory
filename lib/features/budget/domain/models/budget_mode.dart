@@ -70,10 +70,10 @@ extension BudgetModeConfig on BudgetMode {
   
   String get label {
     switch(this) {
-      case BudgetMode.economy: return "Economy 💚";
-      case BudgetMode.balanced: return "Balanced 💛";
-      case BudgetMode.premium: return "Premium ❤️";
-      case BudgetMode.custom: return "Custom ⚙️";
+      case BudgetMode.economy: return name;
+      case BudgetMode.balanced: return name;
+      case BudgetMode.premium: return name;
+      case BudgetMode.custom: return name;
     }
   }
 }

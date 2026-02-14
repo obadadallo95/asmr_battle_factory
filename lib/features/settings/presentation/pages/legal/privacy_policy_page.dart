@@ -27,14 +27,14 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
       if (mounted) setState(() => _content = data);
     } catch (e) {
       debugPrint('Error loading privacy policy: $e');
-      if (mounted) setState(() => _content = 'Error loading document. Please check your internet connection or try again later.');
+      if (mounted) setState(() => _content = context.tr('legal.load_error'));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return LegalDocumentViewer(
-      title: context.locale.languageCode == 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy',
+      title: 'settings_page.privacy_policy'.tr(),
       content: _content,
     );
   }

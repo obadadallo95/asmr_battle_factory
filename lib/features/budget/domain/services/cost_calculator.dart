@@ -76,10 +76,10 @@ class CostCalculator {
     // 4. Optimization Suggestions
     List<String> suggestions = [];
     if (ideaCost > 0.01 && stack.ideaProvider == 'openai') {
-       suggestions.add("استخدم Groq لتوليد الأفكار (وفر \$${ideaCost.toStringAsFixed(3)})");
+       suggestions.add('budget.suggestions.use_groq|${ideaCost.toStringAsFixed(3)}');
     }
     if (videoCost > 2.0) {
-       suggestions.add("انتقل إلى الوضع الاقتصادي (صور فقط) لتوفير \$${videoCost.toStringAsFixed(2)}");
+       suggestions.add('budget.suggestions.economy_mode|${videoCost.toStringAsFixed(2)}');
     }
 
     return CostEstimate(

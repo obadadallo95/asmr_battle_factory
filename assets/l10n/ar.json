@@ -46,7 +46,8 @@
     "collapse": "تصغير القائمة",
     "search_hint": "البحث عن مشروع أو فيديو...",
     "spent_today": "أنفقت اليوم",
-    "marketplace_explore": "استكشاف المتجر"
+    "marketplace_explore": "استكشاف المتجر",
+    "back_again_to_exit": "اضغط رجوع مرة ثانية للخروج"
   },
   "home": "الرئيسية",
   "generate": "توليد",
@@ -86,6 +87,30 @@
       "twist_level": "مستوى الإثارة:",
       "save_to_vault": "حفظ في الحافظة",
       "start_production": "بدء الإنتاج الآن ⚔️"
+    },
+    "studio": {
+      "subtitle": "اتبع الخطوات بالترتيب، وخلّ الباقي علينا",
+      "meta": {
+        "selected": "المختارون: {}/{}",
+        "winner": "الفائز: {}",
+        "mode": "النمط: {}"
+      },
+      "steps": {
+        "contestants": "1) المتسابقون",
+        "selected": "2) المختارون",
+        "configure": "3) الإعداد والإطلاق"
+      },
+      "sections": {
+        "pick_title": "اختر المشاركين",
+        "review_title": "راجع الفريق النهائي",
+        "review_subtitle": "تأكد من التشكيلة قبل الانتقال للإعدادات",
+        "settings_title": "إعدادات المعركة"
+      }
+    },
+    "selected": {
+      "clear_all": "مسح الكل",
+      "count": "{}/{}",
+      "label": "مختارون"
     }
   },
   "vault": {
@@ -95,7 +120,8 @@
     "empty": {
       "title": "الحافظة فارغة حالياً",
       "desc": "قم بتوليد دفعات من الأفكار لتوفير التوكن وتجربة سيناريوهات مختلفة"
-    }
+    },
+    "twist_label": "المنعطف: {}"
   },
   "about": {
     "studio_title": "استوديو المخرج المستقبلي",
@@ -135,6 +161,7 @@
     }
   },
   "categories": {
+    "all": "الكل",
     "insects": "حشرات",
     "wild_animals": "حيوانات",
     "marine_life": "بحري",
@@ -155,7 +182,9 @@
     "cache_cleared": "تم مسح التخزين المؤقت",
     "api_key_saved": "تم حفظ مفتاح {} بأمان 🔒",
     "launch_error": "تعذر فتح {}",
-    "back_to_studio": "العودة للاستوديو"
+    "back_to_studio": "العودة للاستوديو",
+    "oops": "حدث خطأ",
+    "try_again": "إعادة المحاولة"
   },
   "preview": {
     "title": "معاينة",
@@ -213,6 +242,42 @@
       "another_btn": "إنشاء معركة أخرى",
       "scene_label": "مشهد {}",
       "audio_cue": "الصوت: {}"
+    },
+    "contestant": {
+      "name_hint": "الاسم (مثال: النملة الميكانيكية)",
+      "str": "القوة: {}"
+    },
+    "wizard": {
+      "title": "معالج الإنتاج الذكي",
+      "pick_project": "اختر مشروعاً للبدء",
+      "new_generation": "توليد جديد",
+      "confirm_title": "تأكيد تفاصيل الإنتاج",
+      "start_now": "ابدأ الإنتاج الآن ⚡",
+      "summary": {
+        "project": "المشروع",
+        "custom_generation": "توليد مخصص",
+        "contestants": "المتنافسون",
+        "default_contestants": "نمل vs نحل",
+        "budget_mode": "وضع الميزانية",
+        "default_budget": "اقتصادي",
+        "estimated_cost": "التكلفة التقديرية",
+        "expected_quality": "الجودة المتوقعة",
+        "cinematic_high": "سينمائي عالي"
+      }
+    },
+    "progress": {
+      "title": "جاري إنتاج الملحمة...",
+      "subtitle": "يتم الآن إنشاء المعركة السينمائية",
+      "live_cost": "التكلفة الحقيقية الآن",
+      "cancel": "إلغاء العملية (استرداد التكلفة المتبقية)",
+      "stages": {
+        "script_ar": "توليد السيناريو والأفكار",
+        "script_en": "Script & Ideas",
+        "visual_ar": "توليد المشاهد البصرية",
+        "visual_en": "Visual Scenes ({}/{})",
+        "render_ar": "تحريك الفيديو والإنتاج",
+        "render_en": "Video Rendering"
+      }
     }
   },
   "marketplace_page": {
@@ -265,7 +330,27 @@
     "key_required": "مفتاح؟",
     "price_label": "السعر: {}",
     "recent_battles": "أحدث المعارك",
-    "no_battles": "لا توجد معارك بعد"
+    "no_battles": "لا توجد معارك بعد",
+    "subtitle": "سوق API مرتب وسريع للربط",
+    "empty_hint": "جرّب تعديل البحث أو إزالة الفلاتر",
+    "type_music": "موسيقى",
+    "type_voice_clone": "استنساخ الصوت",
+    "type_upscaling": "تحسين الجودة",
+    "type_face_swap": "تبديل الوجوه",
+    "type_subtitles": "ترجمة/تفريغ",
+    "cost_paid": "مدفوع",
+    "cost_open_source": "مفتوح المصدر",
+    "compare_feature": "ميزة",
+    "compare_price": "السعر",
+    "compare_quality": "الجودة",
+    "compare_speed": "السرعة",
+    "compare_availability": "التوفر (سوريا)",
+    "compare_requires_key": "يتطلب مفتاح",
+    "recommendation_title": "توصية ذكية | Smart Mix",
+    "recommendation_quality": "جودة: {}/10",
+    "recommendation_ideas": "أفكار",
+    "recommendation_images": "صور",
+    "recommendation_video": "فيديو"
   },
   "marketplace": {
     "website": "زيارة الموقع",
@@ -343,14 +428,19 @@
   },
   "winner_mode": {
     "title": "تحديد الفائز",
+    "aiDecided": "تلقائي (الذكاء يقرر)",
     "unexpected": "مفاجأة",
     "random": "عشوائي",
+    "userSelected": "أنا أحدد الفائز",
+    "scriptBased": "وفق السيناريو",
     "underdog": "فوز الضعيف",
     "favorite": "فوز الأقوى"
   },
   "battle_type": {
     "title": "نوع المعركة",
     "tournament": "بطولة",
+    "battleRoyale": "باتل رويال",
+    "revengeSeries": "سلسلة انتقام",
     "royale": "باتل رويال",
     "revenge": "قصة انتقام",
     "showcase": "عرض استعراضي"
@@ -391,7 +481,9 @@
       "unlocked": "غير محمي"
     },
     "language": {
-      "title": "اللغة"
+      "title": "اللغة",
+      "arabic": "العربية",
+      "english": "الإنجليزية"
     },
     "status": {
       "online": "النظام يعمل",
@@ -399,7 +491,26 @@
       "latency": "متوسط التأخير"
     },
     "danger_zone": {
-      "title": "منطقة الخطر"
+      "title": "منطقة الخطر",
+      "subtitle": "هذه الإجراءات غير قابلة للتراجع."
+    },
+    "sections": {
+      "control": "لوحة التحكم",
+      "legal": "القانون والمعلومات"
+    },
+    "hero_subtitle": "إعدادات أسرع، شكل أنظف، وتجربة أكثر وضوحًا.",
+    "api_vault": {
+      "title": "خزنة مفاتيح API",
+      "subtitle": "أضف مفاتيح المزودين التي تستخدمها لصناعة المحتوى. كل عملية عرض/تعديل/حذف محمية بالبصمة.",
+      "connected": "المفاتيح المحفوظة: {}",
+      "key_hint": "أدخل مفتاح {}",
+      "enter_key": "أدخل مفتاح API",
+      "biometric_secured": "محمي بالبصمة 🔒",
+      "auth_required": "يلزم التحقق بالبصمة قبل الحفظ",
+      "auth_view_reason": "تحقق بالبصمة لعرض/تعديل مفتاح {}",
+      "auth_save_reason": "تحقق بالبصمة لحفظ مفتاح {}",
+      "auth_delete_reason": "تحقق بالبصمة لحذف مفتاح {}",
+      "key_deleted": "تم حذف مفتاح {}"
     },
     "clear_cache": "مسح الذاكرة المؤقتة",
     "clear_cache_desc": "تحرير مساحة التخزين",
@@ -407,6 +518,35 @@
     "reset_all_desc": "حذف جميع الإعدادات والبيانات",
     "search": {
       "hint": "ابحث في الإعدادات..."
+    },
+    "conductor": {
+      "sections": {
+        "current_intelligence": "الذكاء الحالي",
+        "neural_pipeline": "خط المعالجة العصبي",
+        "active_engines": "المحركات النشطة"
+      },
+      "strategy_title": "استراتيجية متوازنة",
+      "strategy_desc": "تحسين التوازن بين العمق الإبداعي وسرعة التنفيذ عبر جميع الوحدات النشطة.",
+      "pipeline": {
+        "text": "النص",
+        "scene": "المشهد",
+        "voice": "الصوت"
+      },
+      "latency": "زمن الاستجابة: {} مللي ثانية",
+      "tiers": {
+        "speed": {
+          "ultra": "فائق",
+          "fast": "سريع",
+          "standard": "قياسي",
+          "slow": "بطيء"
+        },
+        "cost": {
+          "low": "منخفض",
+          "medium": "متوسط",
+          "high": "مرتفع",
+          "premium": "ممتاز"
+        }
+      }
     }
   },
   "hold_to_confirm": "استمر بالضغط للتأكيد",
@@ -431,5 +571,72 @@
   "history": {
     "title": "المعارك الأخيرة",
     "empty": "لا يوجد معارك بعد. ولد معركتك الأولى!"
+  },
+  "portfolio": {
+    "title": "محفظة الـ APIs الخاصة بك",
+    "empty": "لا توجد مفاتيح API مفعلة بعد",
+    "active_services": "الخدمات المفعلة",
+    "status_active": "الحالة: نشط",
+    "usage_summary": "ملخص الاستهلاك",
+    "total_requests": "إجمالي الطلبات",
+    "estimated_cost": "التكلفة التقريبية",
+    "budget_saving": "توفير الميزانية"
+  },
+  "legal": {
+    "load_error": "تعذر تحميل المستند. حاول مجددًا لاحقًا."
+  },
+  "budget": {
+    "budget": "الميزانية",
+    "economy": "اقتصادي",
+    "balanced": "متوازن",
+    "premium": "ممتاز",
+    "custom": "مخصص",
+    "dashboard": {
+      "title": "💰 لوحة الميزانية",
+      "spent_today": "🔥 أنفقت اليوم:",
+      "videos_today": "📊 عدد الفيديوهات:",
+      "avg_cost": "📈 متوسط التكلفة:",
+      "spent_month": "📅 هذا الشهر:",
+      "videos_month": "🎬 مجموع الفيديوهات:",
+      "video_count": "{} فيديو",
+      "monthly_warning": "اقتربت من حد الـ $100 الشهري",
+      "load_error": "خطأ في تحميل البيانات",
+      "status": {
+        "good": "✓ جيد",
+        "warning": "⚠️ تحذير"
+      }
+    },
+    "estimator": {
+      "title": "💰 تقدير التكلفة",
+      "total_duration": "المدة الإجمالية",
+      "tap_for_details": "انقر لعرض التفاصيل الكاملة",
+      "saving_suggestions": "اقتراحات التوفير",
+      "rows": {
+        "ideas_script": "💡 الأفكار + السيناريو",
+        "images": "🎨 الصور ({})",
+        "video": "🎬 توليد الفيديو",
+        "voiceover": "🔊 التعليق الصوتي"
+      }
+    },
+    "breakdown": {
+      "title": "📊 تفصيل التكلفة الكامل",
+      "step": "الخطوة {}",
+      "idea_title": "توليد الأفكار",
+      "idea_details": "512 رمز (Tokens)",
+      "script_title": "كتابة السيناريو",
+      "script_details": "2048 رمز",
+      "image_title": "توليد الصور",
+      "image_details": "{} صور",
+      "video_title": "توليد الفيديو",
+      "video_details": "{} ثانية",
+      "voice_title": "التعليق الصوتي",
+      "voice_details": "~500 حرف",
+      "total": "المجموع الكلي",
+      "saving_suggestions": "💡 اقتراحات التوفير:"
+    },
+    "suggestions": {
+      "use_groq": "استخدم Groq لتوليد الأفكار (وفر {} دولار)",
+      "economy_mode": "انتقل إلى الوضع الاقتصادي (صور فقط) لتوفير {} دولار"
+    }
   }
 }

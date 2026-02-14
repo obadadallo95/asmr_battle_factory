@@ -17,6 +17,14 @@ import '../../../../../config/di/injection.dart';
 class AboutDeveloperPage extends StatelessWidget {
   const AboutDeveloperPage({super.key});
 
+  void _handleBack(BuildContext context) {
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    } else {
+      context.go('/app/settings');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     
@@ -26,7 +34,7 @@ class AboutDeveloperPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
-          onPressed: () => context.pop(),
+          onPressed: () => _handleBack(context),
         ),
         title: Text(context.tr('about_developer_title'), style: GoogleFonts.cairo(color: Colors.white)),
         centerTitle: true,

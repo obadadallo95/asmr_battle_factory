@@ -56,7 +56,7 @@ class ProviderComparisonSheet extends StatelessWidget {
                     )),
                   ],
                   rows: [
-                    _buildRow(context.tr('marketplace_page.price'), providers.map((p) => p.tierLabel).toList()), // Need keys for attributes?
+                    _buildRow(context.tr('marketplace_page.price'), providers.map((p) => _tierLabel(context, p.tier)).toList()),
                     _buildRow(context.tr('marketplace_page.quality'), providers.map((p) => '⭐ ${p.qualityRating}').toList()),
                     _buildRow(context.tr('marketplace_page.speed'), providers.map((p) => '⚡ ${p.speedRating}').toList()),
                     _buildRow(context.tr('marketplace_page.visa_required'), providers.map((p) => p.requiresCreditCard ? '✅' : '❌').toList()),
@@ -79,5 +79,18 @@ class ProviderComparisonSheet extends StatelessWidget {
         ...values.map((v) => DataCell(Text(v, style: GoogleFonts.cairo(color: Colors.white)))),
       ],
     );
+  }
+
+  String _tierLabel(BuildContext context, ProviderTier tier) {
+    switch (tier) {
+      case ProviderTier.free:
+        return context.tr('marketplace_page.cost_free');
+      case ProviderTier.freemium:
+        return context.tr('marketplace_page.cost_freemium');
+      case ProviderTier.paid:
+        return context.tr('marketplace_page.cost_paid');
+      case ProviderTier.openSource:
+        return context.tr('marketplace_page.cost_open_source');
+    }
   }
 }

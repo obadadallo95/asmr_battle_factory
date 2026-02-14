@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../data/models/cost_estimate.dart';
 
 class CostBreakdownSheet extends StatelessWidget {
@@ -29,7 +30,7 @@ class CostBreakdownSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '📊 تفصيل التكلفة الكامل',
+                'budget.breakdown.title'.tr(),
                 style: GoogleFonts.cairo(
                   color: Colors.white,
                   fontSize: 18.sp,
@@ -45,47 +46,47 @@ class CostBreakdownSheet extends StatelessWidget {
           SizedBox(height: 20.h),
           
           _buildStepCard(
-            step: 'الخطوة 1',
-            title: 'توليد الأفكار',
+            step: 'budget.breakdown.step'.tr(args: ['1']),
+            title: 'budget.breakdown.idea_title'.tr(),
             provider: estimate.apiStack.ideaProvider,
-            details: '512 رمز (Tokens)',
+            details: 'budget.breakdown.idea_details'.tr(),
             cost: estimate.breakdown.ideaGeneration,
             icon: '💡',
           ),
           
           _buildStepCard(
-            step: 'الخطوة 2',
-            title: 'كتابة السيناريو',
+            step: 'budget.breakdown.step'.tr(args: ['2']),
+            title: 'budget.breakdown.script_title'.tr(),
             provider: estimate.apiStack.scriptProvider,
-            details: '2048 رمز',
+            details: 'budget.breakdown.script_details'.tr(),
             cost: estimate.breakdown.scriptWriting,
             icon: '📝',
           ),
           
           _buildStepCard(
-            step: 'الخطوة 3',
-            title: 'توليد الصور',
+            step: 'budget.breakdown.step'.tr(args: ['3']),
+            title: 'budget.breakdown.image_title'.tr(),
             provider: estimate.apiStack.imageProvider,
-            details: '$sceneCount صور',
+            details: 'budget.breakdown.image_details'.tr(args: ['$sceneCount']),
             cost: estimate.breakdown.imageGeneration,
             icon: '🎨',
           ),
           
           if (estimate.apiStack.videoProvider != null)
             _buildStepCard(
-              step: 'الخطوة 4',
-              title: 'توليد الفيديو',
+              step: 'budget.breakdown.step'.tr(args: ['4']),
+              title: 'budget.breakdown.video_title'.tr(),
               provider: estimate.apiStack.videoProvider!,
-              details: '${estimate.totalDurationSeconds.toInt()} ثانية',
+              details: 'budget.breakdown.video_details'.tr(args: ['${estimate.totalDurationSeconds.toInt()}']),
               cost: estimate.breakdown.videoGeneration,
               icon: '🎬',
             ),
           
           _buildStepCard(
-            step: 'الخطوة ${estimate.apiStack.videoProvider != null ? "5" : "4"}',
-            title: 'التعليق الصوتي',
+            step: 'budget.breakdown.step'.tr(args: [estimate.apiStack.videoProvider != null ? '5' : '4']),
+            title: 'budget.breakdown.voice_title'.tr(),
             provider: 'ElevenLabs',
-            details: '~500 حرف',
+            details: 'budget.breakdown.voice_details'.tr(),
             cost: estimate.breakdown.audioGeneration,
             icon: '🔊',
           ),
@@ -96,7 +97,7 @@ class CostBreakdownSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'المجموع الكلي',
+                'budget.breakdown.total'.tr(),
                 style: GoogleFonts.cairo(
                   color: Colors.white,
                   fontSize: 16.sp,
@@ -117,7 +118,7 @@ class CostBreakdownSheet extends StatelessWidget {
           if (estimate.optimizationSuggestions.isNotEmpty) ...[
             SizedBox(height: 20.h),
             Text(
-              '💡 اقتراحات التوفير:',
+              'budget.breakdown.saving_suggestions'.tr(),
               style: GoogleFonts.cairo(
                 color: Colors.yellowAccent,
                 fontSize: 14.sp,
@@ -134,7 +135,7 @@ class CostBreakdownSheet extends StatelessWidget {
                     SizedBox(width: 8.w),
                     Expanded(
                       child: Text(
-                        suggestion,
+                        _resolveSuggestion(context, suggestion),
                         style: TextStyle(color: Colors.white70, fontSize: 12.sp),
                       ),
                     ),
@@ -209,5 +210,12 @@ class CostBreakdownSheet extends StatelessWidget {
     if (cost < 0.5) return Colors.greenAccent;
     if (cost < 2.0) return Colors.amberAccent;
     return Colors.redAccent;
+  }
+
+  String _resolveSuggestion(BuildContext context, String suggestion) {
+    final parts = suggestion.split('|');
+    final key = parts.first;
+    final args = parts.length > 1 ? parts.sublist(1) : const <String>[];
+    return context.tr(key, args: args);
   }
 }

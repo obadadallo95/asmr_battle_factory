@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../core/widgets/glass_card.dart';
 import '../../../../features/ai/data/provider_registry.dart';
@@ -56,15 +57,15 @@ class _AIConductorPageState extends State<AIConductorPage> {
                 padding: EdgeInsets.all(20.w),
                 sliver: SliverList(
                   delegate: SliverChildListDelegate([
-                    _buildSectionHeader('Current Intelligence', Icons.psychology),
+                    _buildSectionHeader('settings.conductor.sections.current_intelligence'.tr(), Icons.psychology),
                     SizedBox(height: 15.h),
                     _buildStatusCard(),
                     SizedBox(height: 30.h),
-                    _buildSectionHeader('Neural Pipeline', Icons.linear_scale),
+                    _buildSectionHeader('settings.conductor.sections.neural_pipeline'.tr(), Icons.linear_scale),
                     SizedBox(height: 15.h),
                     _buildStaticPipeline(),
                     SizedBox(height: 30.h),
-                    _buildSectionHeader('Active Engines', Icons.fact_check),
+                    _buildSectionHeader('settings.conductor.sections.active_engines'.tr(), Icons.fact_check),
                     SizedBox(height: 15.h),
                     _buildProviderList(),
                     SizedBox(height: 100.h),
@@ -106,7 +107,7 @@ class _AIConductorPageState extends State<AIConductorPage> {
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         title: Text(
-          'AI CONDUCTOR',
+          'settings_page.ai_conductor'.tr(),
           style: GoogleFonts.orbitron(
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
@@ -124,7 +125,7 @@ class _AIConductorPageState extends State<AIConductorPage> {
         Icon(icon, color: Colors.cyanAccent, size: 18.sp),
         SizedBox(width: 10.w),
         Text(
-          title.toUpperCase(),
+          title,
           style: GoogleFonts.orbitron(
             fontSize: 12.sp,
             fontWeight: FontWeight.bold,
@@ -156,7 +157,7 @@ class _AIConductorPageState extends State<AIConductorPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'BALANCED STRATEGY',
+                    'settings.conductor.strategy_title'.tr(),
                     style: GoogleFonts.sourceCodePro(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.sp,
@@ -164,7 +165,7 @@ class _AIConductorPageState extends State<AIConductorPage> {
                     ),
                   ),
                   Text(
-                    'Optimizing for both creative depth and execution speed across all active modules.',
+                    'settings.conductor.strategy_desc'.tr(),
                     style: TextStyle(color: Colors.white54, fontSize: 12.sp),
                   ),
                 ],
@@ -179,11 +180,11 @@ class _AIConductorPageState extends State<AIConductorPage> {
   Widget _buildStaticPipeline() {
     return Row(
       children: [
-        _buildPipelineNode('TEXT', Icons.text_fields, 'GPT-4O'),
+        _buildPipelineNode('settings.conductor.pipeline.text'.tr(), Icons.text_fields, 'GPT-4O'),
         _buildConnector(),
-        _buildPipelineNode('SCENE', Icons.movie_filter, 'GEMINI'),
+        _buildPipelineNode('settings.conductor.pipeline.scene'.tr(), Icons.movie_filter, 'GEMINI'),
         _buildConnector(),
-        _buildPipelineNode('VOICE', Icons.graphic_eq, 'GROQ'),
+        _buildPipelineNode('settings.conductor.pipeline.voice'.tr(), Icons.graphic_eq, 'GROQ'),
       ],
     );
   }
@@ -202,7 +203,7 @@ class _AIConductorPageState extends State<AIConductorPage> {
             child: Icon(icon, color: Colors.white70, size: 20.sp),
           ),
           SizedBox(height: 8.h),
-          Text(label, style: TextStyle(color: Colors.white38, fontSize: 10.sp, fontWeight: FontWeight.bold)),
+                    Text(label, style: TextStyle(color: Colors.white38, fontSize: 10.sp, fontWeight: FontWeight.bold)),
           Text(value, 
             style: GoogleFonts.sourceCodePro(color: Colors.cyanAccent, fontSize: 9.sp, fontWeight: FontWeight.bold),
             overflow: TextOverflow.ellipsis,
@@ -237,14 +238,14 @@ class _AIConductorPageState extends State<AIConductorPage> {
                 style: GoogleFonts.sourceCodePro(fontWeight: FontWeight.bold, color: Colors.white),
               ),
               subtitle: Text(
-                'Latency: ${profile.speed.averageLatencyMs}ms',
+                'settings.conductor.latency'.tr(args: ['${profile.speed.averageLatencyMs}']),
                 style: const TextStyle(color: Colors.white54),
               ),
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   Text(profile.speed.tier.toUpperCase(), style: TextStyle(color: Colors.greenAccent, fontSize: 10.sp, fontWeight: FontWeight.bold)),
-                   Text(profile.cost.tier.toUpperCase(), style: TextStyle(color: Colors.orangeAccent, fontSize: 10.sp)),
+                   Text(context.tr('settings.conductor.tiers.speed.${profile.speed.tier}'), style: TextStyle(color: Colors.greenAccent, fontSize: 10.sp, fontWeight: FontWeight.bold)),
+                   Text(context.tr('settings.conductor.tiers.cost.${profile.cost.tier}'), style: TextStyle(color: Colors.orangeAccent, fontSize: 10.sp)),
                 ],
               ),
             ),

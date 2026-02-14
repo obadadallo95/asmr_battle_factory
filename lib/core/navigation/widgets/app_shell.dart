@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +11,6 @@ import '../../../features/configurator/presentation/pages/battle_configurator_pa
 import '../../../features/projects/presentation/pages/projects_page.dart';
 import '../../../features/marketplace/presentation/pages/api_marketplace_page.dart';
 import '../../../features/settings/presentation/settings_page.dart';
-import '../../../features/generator/presentation/generator_page.dart'; // Still needed for context
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../services/navigation_guard_service.dart';
@@ -25,6 +25,8 @@ class AppShell extends ConsumerStatefulWidget {
 }
 
 class _AppShellState extends ConsumerState<AppShell> {
+  DateTime? _lastBackPress;
+
   int _calculateSelectedIndex(BuildContext context) {
     final String location = GoRouterState.of(context).uri.toString();
     if (location.startsWith('/app/home')) return 0;
@@ -75,53 +77,79 @@ class _AppShellState extends ConsumerState<AppShell> {
       ],
     );
 
-    if (isDesktop) {
-       return Scaffold(
-         body: Row(
-           children: [
-             NavigationRail(
-               selectedIndex: selectedIndex,
-               onDestinationSelected: (int index) => _onItemTapped(index, context),
-               backgroundColor: const Color(0xFF1E1E2C),
-               labelType: NavigationRailLabelType.all,
-               selectedLabelTextStyle: GoogleFonts.cairo(color: Colors.purpleAccent, fontSize: 12.sp),
-               unselectedLabelTextStyle: GoogleFonts.cairo(color: Colors.white54, fontSize: 10.sp),
-               destinations: _buildDestinations(context).map((d) => NavigationRailDestination(
-                 icon: d.icon,
-                 selectedIcon: d.activeIcon,
-                 label: Text(d.label!),
-               )).toList(),
-             ),
-             const VerticalDivider(thickness: 1, width: 1, color: Colors.white10),
-             Expanded(child: body),
-           ],
-         ),
-       );
-    }
-    
-    return Scaffold(
-      body: body,
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          labelTextStyle: WidgetStateProperty.resolveWith((states) {
-            if (states.contains(WidgetState.selected)) {
-              return GoogleFonts.cairo(fontSize: 12.sp, fontWeight: FontWeight.bold, color: Colors.purpleAccent);
-            }
-            return GoogleFonts.cairo(fontSize: 10.sp, color: Colors.white54);
-          }),
-        ),
-        child: NavigationBar(
-          selectedIndex: selectedIndex,
-          onDestinationSelected: (index) => _onItemTapped(index, context),
-          backgroundColor: const Color(0xFF1E1E2C),
-          indicatorColor: Colors.purpleAccent.withValues(alpha: 0.2),
-          destinations: _buildDestinations(context).map((d) => NavigationDestination(
-            icon: d.icon,
-            selectedIcon: d.activeIcon,
-            label: d.label!,
-          )).toList(),
-        ),
-      ),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop) return;
+
+        if (selectedIndex != 0) {
+          if (context.mounted) context.go('/app/home');
+          return;
+        }
+
+        final canExit = await ref.read(navigationGuardProvider.notifier).canPop(context);
+        if (!canExit || !context.mounted) return;
+
+        final now = DateTime.now();
+        if (_lastBackPress == null || now.difference(_lastBackPress!) > const Duration(seconds: 2)) {
+          _lastBackPress = now;
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('navigation.back_again_to_exit'.tr()),
+              duration: Duration(seconds: 2),
+            ),
+          );
+          return;
+        }
+
+        SystemNavigator.pop();
+      },
+      child: isDesktop
+          ? Scaffold(
+              body: Row(
+                children: [
+                  NavigationRail(
+                    selectedIndex: selectedIndex,
+                    onDestinationSelected: (int index) => _onItemTapped(index, context),
+                    backgroundColor: const Color(0xFF1E1E2C),
+                    labelType: NavigationRailLabelType.all,
+                    selectedLabelTextStyle: GoogleFonts.cairo(color: Colors.purpleAccent, fontSize: 12.sp),
+                    unselectedLabelTextStyle: GoogleFonts.cairo(color: Colors.white54, fontSize: 10.sp),
+                    destinations: _buildDestinations(context).map((d) => NavigationRailDestination(
+                      icon: d.icon,
+                      selectedIcon: d.activeIcon,
+                      label: Text(d.label!),
+                    )).toList(),
+                  ),
+                  const VerticalDivider(thickness: 1, width: 1, color: Colors.white10),
+                  Expanded(child: body),
+                ],
+              ),
+            )
+          : Scaffold(
+              body: body,
+              bottomNavigationBar: NavigationBarTheme(
+                data: NavigationBarThemeData(
+                  labelTextStyle: WidgetStateProperty.resolveWith((states) {
+                    if (states.contains(WidgetState.selected)) {
+                      return GoogleFonts.cairo(fontSize: 12.sp, fontWeight: FontWeight.bold, color: Colors.purpleAccent);
+                    }
+                    return GoogleFonts.cairo(fontSize: 10.sp, color: Colors.white54);
+                  }),
+                ),
+                child: NavigationBar(
+                  selectedIndex: selectedIndex,
+                  onDestinationSelected: (index) => _onItemTapped(index, context),
+                  backgroundColor: const Color(0xFF1E1E2C),
+                  indicatorColor: Colors.purpleAccent.withValues(alpha: 0.2),
+                  destinations: _buildDestinations(context).map((d) => NavigationDestination(
+                    icon: d.icon,
+                    selectedIcon: d.activeIcon,
+                    label: d.label!,
+                  )).toList(),
+                ),
+              ),
+            ),
     );
   }
 

@@ -27,14 +27,14 @@ class _TermsOfServicePageState extends State<TermsOfServicePage> {
       if (mounted) setState(() => _content = data);
     } catch (e) {
       debugPrint('Error loading terms of service: $e');
-       if (mounted) setState(() => _content = 'Error loading document.');
+       if (mounted) setState(() => _content = context.tr('legal.load_error'));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return LegalDocumentViewer(
-      title: context.locale.languageCode == 'ar' ? 'شروط الاستخدام' : 'Terms of Service',
+      title: 'settings_page.terms_of_service'.tr(),
       content: _content,
     );
   }

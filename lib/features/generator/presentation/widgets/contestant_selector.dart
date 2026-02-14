@@ -151,9 +151,9 @@ class _ContestantCardState extends State<_ContestantCard> {
                 TextField(
                   controller: _nameController,
                   onChanged: (val) => widget.onUpdate(widget.contestant.copyWith(nameEn: val)),
-                  decoration: const InputDecoration(
-                    hintText: 'Name (e.g. Mecha Ant)',
-                    hintStyle: TextStyle(color: Colors.white30),
+                  decoration: InputDecoration(
+                    hintText: 'generator.contestant.name_hint'.tr(),
+                    hintStyle: const TextStyle(color: Colors.white30),
                     border: InputBorder.none,
                     isDense: true,
                   ),
@@ -163,7 +163,7 @@ class _ContestantCardState extends State<_ContestantCard> {
                 Row(
                   children: [
                     Text(
-                      'STR: ${(widget.contestant.powerLevel * 10).toInt()}',
+                      'generator.contestant.str'.tr(args: ['${(widget.contestant.powerLevel * 10).toInt()}']),
                       style: TextStyle(color: Colors.white54, fontSize: 10.sp),
                     ),
                     Expanded(

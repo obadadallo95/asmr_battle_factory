@@ -40,11 +40,11 @@ class MyApplicationsSection extends ConsumerWidget {
         if (providers.isEmpty) return const SizedBox.shrink();
         
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-          padding: EdgeInsets.all(16.w),
+          margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
           decoration: BoxDecoration(
             color: Colors.white.withValues(alpha: 0.05),
-            borderRadius: BorderRadius.circular(20.r),
+            borderRadius: BorderRadius.circular(14.r),
             border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
           ),
           child: Column(
@@ -53,15 +53,15 @@ class MyApplicationsSection extends ConsumerWidget {
               Text(
                 context.tr('marketplace_page.my_providers', args: [providers.length.toString()]),
                 style: GoogleFonts.cairo(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w800,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 12.h),
+              SizedBox(height: 8.h),
               Wrap(
-                spacing: 10.w,
-                runSpacing: 10.h,
+                spacing: 8.w,
+                runSpacing: 8.h,
                 children: providers.map((p) => _buildChip(context, p)).toList(),
               ),
             ],
@@ -76,34 +76,34 @@ class MyApplicationsSection extends ConsumerWidget {
   Widget _buildChip(BuildContext context, ProviderCatalogEntry provider) {
     final color = provider.brandColorValue;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(10.r),
         border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 8.w,
-            height: 8.w,
+            width: 7.w,
+            height: 7.w,
             decoration: BoxDecoration(
               color: provider.requiresKey ? Colors.greenAccent : Colors.blueAccent,
               shape: BoxShape.circle,
             ),
           ),
-          SizedBox(width: 8.w),
+          SizedBox(width: 6.w),
           Text(
             context.locale.languageCode == 'ar' ? provider.nameAr : provider.name,
             style: GoogleFonts.cairo(
-              fontSize: 12.sp,
+              fontSize: 11.sp,
               color: Colors.white,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w700,
             ),
           ),
           SizedBox(width: 4.w),
-          const Icon(Icons.arrow_forward_ios, size: 10, color: Colors.white30),
+          const Icon(Icons.arrow_forward_ios, size: 9, color: Colors.white30),
         ],
       ),
     );
