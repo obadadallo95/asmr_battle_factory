@@ -40,18 +40,22 @@ class SystemStatusHeader extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _StatusItem(
-                label: 'settings.status.apis'.tr(),
-                value: '${apiHealth.connected}/${apiHealth.total}',
-                icon: Icons.api,
-                color: Colors.cyanAccent,
+              Expanded(
+                child: _StatusItem(
+                  label: 'settings.status.apis'.tr(),
+                  value: '${apiHealth.connected}/${apiHealth.total}',
+                  icon: Icons.api,
+                  color: Colors.cyanAccent,
+                ),
               ),
               Container(width: 1, height: 4.g, color: Colors.white12),
-              _StatusItem(
-                label: 'settings.status.latency'.tr(),
-                value: '${latency}ms',
-                icon: Icons.speed,
-                color: Colors.orangeAccent,
+              Expanded(
+                child: _StatusItem(
+                  label: 'settings.status.latency'.tr(),
+                  value: '${latency}ms',
+                  icon: Icons.speed,
+                  color: Colors.orangeAccent,
+                ),
               ),
             ],
           ),

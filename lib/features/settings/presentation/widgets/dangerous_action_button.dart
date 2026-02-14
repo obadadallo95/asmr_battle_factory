@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theme/golden_ratio.dart';
 import '../../../../core/utils/responsive_extensions.dart';
 
@@ -91,6 +92,8 @@ class _DangerousActionButtonState extends State<DangerousActionButton> with Sing
                       children: [
                         Text(
                           widget.label,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 2.t,
                             color: widget.color,
@@ -99,6 +102,8 @@ class _DangerousActionButtonState extends State<DangerousActionButton> with Sing
                         ),
                         Text(
                           widget.sublabel,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 1.t,
                             color: Colors.white54,
@@ -107,23 +112,29 @@ class _DangerousActionButtonState extends State<DangerousActionButton> with Sing
                       ],
                     ),
                   ),
-                  _isHolding
-                      ? SizedBox(
-                          width: 2.t,
-                          height: 2.t,
-                          child: CircularProgressIndicator(
-                            value: _controller.value,
-                            color: widget.color,
-                            strokeWidth: 2,
+                  SizedBox(width: 8.w),
+                  Flexible(
+                    flex: 0,
+                    child: _isHolding
+                        ? SizedBox(
+                            width: 2.t,
+                            height: 2.t,
+                            child: CircularProgressIndicator(
+                              value: _controller.value,
+                              color: widget.color,
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : Text(
+                            'hold_to_confirm'.tr(),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 1.t,
+                              color: widget.color.withValues(alpha: 0.7),
+                            ),
                           ),
-                        )
-                      : Text(
-                          'hold_to_confirm'.tr(),
-                          style: TextStyle(
-                            fontSize: 1.t,
-                            color: widget.color.withValues(alpha: 0.7),
-                          ),
-                        ),
+                  ),
                 ],
               ),
             ),
