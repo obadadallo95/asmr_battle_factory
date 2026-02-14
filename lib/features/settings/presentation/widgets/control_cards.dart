@@ -80,7 +80,7 @@ class DisplayControlCard extends ConsumerWidget {
               ),
               Switch.adaptive(
                 value: isDark,
-                activeColor: Colors.purpleAccent,
+                activeThumbColor: Colors.purpleAccent,
                 onChanged: (value) {
                   ref.read(settingsProvider.notifier).setThemeMode(
                     value ? ThemeMode.dark : ThemeMode.light,

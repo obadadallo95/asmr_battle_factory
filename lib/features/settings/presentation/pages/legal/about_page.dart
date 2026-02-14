@@ -31,7 +31,6 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    final isAr = context.locale.languageCode == 'ar';
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
