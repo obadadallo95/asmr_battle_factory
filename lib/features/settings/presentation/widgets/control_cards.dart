@@ -17,7 +17,7 @@ class AIControlCard extends ConsumerWidget {
     final connectedCount = ref.watch(connectedProvidersCountProvider);
     
     return GlassCard(
-      onTap: () => context.go('/settings/conductor'),
+      onTap: () => context.push('/settings/conductor'),
       padding: context.gPadding(Factor.sm),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

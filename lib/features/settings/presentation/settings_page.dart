@@ -107,6 +107,7 @@ class SettingsPage extends ConsumerWidget {
                       DangerousActionButton(
                         icon: Icons.restore,
                         label: 'settings.reset_all'.tr(),
+                        onTap: () => context.push('/settings/about/developer'),
                         sublabel: 'settings.reset_all_desc'.tr(),
                         color: Colors.redAccent,
                         holdDuration: const Duration(seconds: 3),
@@ -159,7 +160,7 @@ class SettingsPage extends ConsumerWidget {
       leading: Icon(icon, color: Colors.purpleAccent, size: 2.t),
       title: Text(title, style: const TextStyle(color: Colors.white70)),
       trailing: const Icon(Icons.arrow_forward_ios, size: 14, color: Colors.white24),
-      onTap: () => context.go(route),
+      onTap: () => context.push(route),
     );
   }
 }

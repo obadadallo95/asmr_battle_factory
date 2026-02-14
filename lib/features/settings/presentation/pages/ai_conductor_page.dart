@@ -43,7 +43,17 @@ class _AIConductorPageState extends State<AIConductorPage> with SingleTickerProv
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text('AI Conductor', style: GoogleFonts.cairo(fontWeight: FontWeight.bold)),
-        leading: const BackButton(),
+        leading: IconButton(
+          icon: Container(
+            padding: EdgeInsets.all(8.w),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.05),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
+          ),
+          onPressed: () => context.pop(),
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
