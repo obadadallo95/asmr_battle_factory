@@ -98,10 +98,13 @@ class ProjectsPage extends ConsumerWidget {
         childAspectRatio: 0.85,
       ),
       delegate: SliverChildBuilderDelegate(
-        (context, index) => ProjectCard(project: projects[index]),
+        (context, index) => ProjectCard(project: projects[index])
+            .animate()
+            .fadeIn(duration: 400.ms, delay: (index * 50).ms)
+            .slideY(begin: 0.1, end: 0),
         childCount: projects.length,
       ),
-    ).animate().fadeIn(duration: 400.ms);
+    );
   }
 
   Widget _buildEmptyState(BuildContext context, bool isSearch) {
