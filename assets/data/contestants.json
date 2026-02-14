@@ -1,0 +1,804 @@
+{
+    "contestants": [
+        {
+            "id": "ant",
+            "nameAr": "نملة",
+            "nameEn": "Ant",
+            "category": "insects",
+            "iconAsset": "🐜",
+            "strengths": [
+                "acidic",
+                "fast",
+                "colony"
+            ],
+            "weaknesses": [
+                "fire",
+                "large predators"
+            ],
+            "powerLevel": 3
+        },
+        {
+            "id": "bee",
+            "nameAr": "نحلة",
+            "nameEn": "Bee",
+            "category": "insects",
+            "iconAsset": "🐝",
+            "strengths": [
+                "sting",
+                "flight"
+            ],
+            "weaknesses": [
+                "water",
+                "smoke"
+            ],
+            "powerLevel": 4
+        },
+        {
+            "id": "spider",
+            "nameAr": "عنكبوت",
+            "nameEn": "Spider",
+            "category": "insects",
+            "iconAsset": "🕷️",
+            "strengths": [
+                "venom",
+                "web"
+            ],
+            "weaknesses": [
+                "birds",
+                "fire"
+            ],
+            "powerLevel": 5
+        },
+        {
+            "id": "wasp",
+            "nameAr": "دبور",
+            "nameEn": "Wasp",
+            "category": "insects",
+            "iconAsset": "🐝",
+            "strengths": [
+                "aggressive",
+                "multiple stings"
+            ],
+            "weaknesses": [
+                "cold"
+            ],
+            "powerLevel": 6
+        },
+        {
+            "id": "scorpion",
+            "nameAr": "عقرب",
+            "nameEn": "Scorpion",
+            "category": "insects",
+            "iconAsset": "🦂",
+            "strengths": [
+                "pincers",
+                "tail sting"
+            ],
+            "weaknesses": [
+                "large mammals"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "lion",
+            "nameAr": "أسد",
+            "nameEn": "Lion",
+            "category": "wildAnimals",
+            "iconAsset": "🦁",
+            "strengths": [
+                "roar",
+                "claws",
+                "bite"
+            ],
+            "weaknesses": [
+                "groups"
+            ],
+            "powerLevel": 9
+        },
+        {
+            "id": "tiger",
+            "nameAr": "نمر",
+            "nameEn": "Tiger",
+            "category": "wildAnimals",
+            "iconAsset": "🐯",
+            "strengths": [
+                "stealth",
+                "power"
+            ],
+            "weaknesses": [
+                "heat exhaustion"
+            ],
+            "powerLevel": 9
+        },
+        {
+            "id": "elephant",
+            "nameAr": "فيل",
+            "nameEn": "Elephant",
+            "category": "wildAnimals",
+            "iconAsset": "🐘",
+            "strengths": [
+                "size",
+                "trunk",
+                "tusks"
+            ],
+            "weaknesses": [
+                "mice",
+                "speed"
+            ],
+            "powerLevel": 10
+        },
+        {
+            "id": "bear",
+            "nameAr": "دب",
+            "nameEn": "Bear",
+            "category": "wildAnimals",
+            "iconAsset": "🐻",
+            "strengths": [
+                "strength",
+                "durability"
+            ],
+            "weaknesses": [
+                "long distance running"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "wolf",
+            "nameAr": "ذئب",
+            "nameEn": "Wolf",
+            "category": "wildAnimals",
+            "iconAsset": "🐺",
+            "strengths": [
+                "pack mentality",
+                "stamina"
+            ],
+            "weaknesses": [
+                "solitary combat"
+            ],
+            "powerLevel": 6
+        },
+        {
+            "id": "snake",
+            "nameAr": "ثعبان",
+            "nameEn": "Snake",
+            "category": "wildAnimals",
+            "iconAsset": "🐍",
+            "strengths": [
+                "venom",
+                "constriction"
+            ],
+            "weaknesses": [
+                "cold blooded"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "shark",
+            "nameAr": "قرش",
+            "nameEn": "Shark",
+            "category": "marineLife",
+            "iconAsset": "🦈",
+            "strengths": [
+                "teeth",
+                "blood sensing"
+            ],
+            "weaknesses": [
+                "out of water"
+            ],
+            "powerLevel": 9
+        },
+        {
+            "id": "whale",
+            "nameAr": "حوت",
+            "nameEn": "Whale",
+            "category": "marineLife",
+            "iconAsset": "🐋",
+            "strengths": [
+                "mass",
+                "tail slap"
+            ],
+            "weaknesses": [
+                "beaching"
+            ],
+            "powerLevel": 10
+        },
+        {
+            "id": "octopus",
+            "nameAr": "أخطبوط",
+            "nameEn": "Octopus",
+            "category": "marineLife",
+            "iconAsset": "🐙",
+            "strengths": [
+                "camouflage",
+                "ink",
+                "intelligence"
+            ],
+            "weaknesses": [
+                "vulnerability when out of cover"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "iron",
+            "nameAr": "حديد",
+            "nameEn": "Iron",
+            "category": "metals",
+            "iconAsset": "⛓️",
+            "strengths": [
+                "hard",
+                "magnetism"
+            ],
+            "weaknesses": [
+                "rust",
+                "extreme heat"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "gold",
+            "nameAr": "ذهب",
+            "nameEn": "Gold",
+            "category": "metals",
+            "iconAsset": "💰",
+            "strengths": [
+                "value",
+                "conduction"
+            ],
+            "weaknesses": [
+                "softness",
+                "heavy"
+            ],
+            "powerLevel": 6
+        },
+        {
+            "id": "diamond",
+            "nameAr": "ألماس",
+            "nameEn": "Diamond",
+            "category": "metals",
+            "iconAsset": "💎",
+            "strengths": [
+                "unbreakable",
+                "sharp"
+            ],
+            "weaknesses": [
+                "brittle under specific impact"
+            ],
+            "powerLevel": 10
+        },
+        {
+            "id": "fire",
+            "nameAr": "نار",
+            "nameEn": "Fire",
+            "category": "elements",
+            "iconAsset": "🔥",
+            "strengths": [
+                "heat",
+                "spread"
+            ],
+            "weaknesses": [
+                "water",
+                "vacuum"
+            ],
+            "powerLevel": 9
+        },
+        {
+            "id": "water",
+            "nameAr": "ماء",
+            "nameEn": "Water",
+            "category": "elements",
+            "iconAsset": "💧",
+            "strengths": [
+                "fluidity",
+                "extinguishing"
+            ],
+            "weaknesses": [
+                "ice",
+                "electricity"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "thunder",
+            "nameAr": "رعد",
+            "nameEn": "Thunder",
+            "category": "elements",
+            "iconAsset": "⚡",
+            "strengths": [
+                "speed",
+                "voltage"
+            ],
+            "weaknesses": [
+                "grounding"
+            ],
+            "powerLevel": 10
+        },
+        {
+            "id": "robot",
+            "nameAr": "روبوت",
+            "nameEn": "Robot",
+            "category": "tech",
+            "iconAsset": "🤖",
+            "strengths": [
+                "logic",
+                "unfeeling"
+            ],
+            "weaknesses": [
+                "EMP",
+                "water"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "drone",
+            "nameAr": "درون",
+            "nameEn": "Drone",
+            "category": "tech",
+            "iconAsset": "🚁",
+            "strengths": [
+                "aerial survey",
+                "lasers"
+            ],
+            "weaknesses": [
+                "signal jammer"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "crocodile",
+            "nameAr": "تمساح",
+            "nameEn": "Crocodile",
+            "category": "wildAnimals",
+            "iconAsset": "🐊",
+            "strengths": [
+                "death roll",
+                "armor"
+            ],
+            "weaknesses": [
+                "dry land"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "eagle",
+            "nameAr": "نسر",
+            "nameEn": "Eagle",
+            "category": "wildAnimals",
+            "iconAsset": "🦅",
+            "strengths": [
+                "vision",
+                "dive"
+            ],
+            "weaknesses": [
+                "enclosed spaces"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "gorilla",
+            "nameAr": "غوريلا",
+            "nameEn": "Gorilla",
+            "category": "wildAnimals",
+            "iconAsset": "🦍",
+            "strengths": [
+                "raw power",
+                "intelligence"
+            ],
+            "weaknesses": [
+                "lethargy"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "scissors",
+            "nameAr": "مقص",
+            "nameEn": "Scissors",
+            "category": "stationery",
+            "iconAsset": "✂️",
+            "strengths": [
+                "sharp",
+                "precision"
+            ],
+            "weaknesses": [
+                "rock"
+            ],
+            "powerLevel": 4
+        },
+        {
+            "id": "pencil",
+            "nameAr": "قلم رصاص",
+            "nameEn": "Pencil",
+            "category": "stationery",
+            "iconAsset": "✏️",
+            "strengths": [
+                "marking",
+                "slender"
+            ],
+            "weaknesses": [
+                "eraser",
+                "snapping"
+            ],
+            "powerLevel": 2
+        },
+        {
+            "id": "stapler",
+            "nameAr": "دباسة",
+            "nameEn": "Stapler",
+            "category": "stationery",
+            "iconAsset": "📎",
+            "strengths": [
+                "binding",
+                "metal"
+            ],
+            "weaknesses": [
+                "jamming"
+            ],
+            "powerLevel": 5
+        },
+        {
+            "id": "ruler",
+            "nameAr": "مسطرة",
+            "nameEn": "Ruler",
+            "category": "stationery",
+            "iconAsset": "📏",
+            "strengths": [
+                "reach",
+                "straight edges"
+            ],
+            "weaknesses": [
+                "bending"
+            ],
+            "powerLevel": 3
+        },
+        {
+            "id": "apple",
+            "nameAr": "تفاحة",
+            "nameEn": "Apple",
+            "category": "food",
+            "iconAsset": "🍎",
+            "strengths": [
+                "crunch",
+                "health"
+            ],
+            "weaknesses": [
+                "worms",
+                "knives"
+            ],
+            "powerLevel": 2
+        },
+        {
+            "id": "chili",
+            "nameAr": "فلفل حار",
+            "nameEn": "Chili Pepper",
+            "category": "food",
+            "iconAsset": "🌶️",
+            "strengths": [
+                "heat",
+                "irritation"
+            ],
+            "weaknesses": [
+                "milk"
+            ],
+            "powerLevel": 4
+        },
+        {
+            "id": "watermelon",
+            "nameAr": "بطيخ",
+            "nameEn": "Watermelon",
+            "category": "food",
+            "iconAsset": "🍉",
+            "strengths": [
+                "size",
+                "liquid spray"
+            ],
+            "weaknesses": [
+                "gravity"
+            ],
+            "powerLevel": 5
+        },
+        {
+            "id": "dragon",
+            "nameAr": "تنين",
+            "nameEn": "Dragon",
+            "category": "mythical",
+            "iconAsset": "🐉",
+            "strengths": [
+                "fire breath",
+                "scales",
+                "flight"
+            ],
+            "weaknesses": [
+                "cold",
+                "dragon-slayers"
+            ],
+            "powerLevel": 10
+        },
+        {
+            "id": "phoenix",
+            "nameAr": "فينيكس",
+            "nameEn": "Phoenix",
+            "category": "mythical",
+            "iconAsset": "🐦",
+            "strengths": [
+                "rebirth",
+                "fire immunity"
+            ],
+            "weaknesses": [
+                "darkness"
+            ],
+            "powerLevel": 9
+        },
+        {
+            "id": "unicorn",
+            "nameAr": "وحيد قرن",
+            "nameEn": "Unicorn",
+            "category": "mythical",
+            "iconAsset": "🦄",
+            "strengths": [
+                "pure magic",
+                "horn pierces armor"
+            ],
+            "weaknesses": [
+                "corruption"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "gargoyle",
+            "nameAr": "غرغول",
+            "nameEn": "Gargoyle",
+            "category": "mythical",
+            "iconAsset": "🗿",
+            "strengths": [
+                "stone skin",
+                "night flight"
+            ],
+            "weaknesses": [
+                "sunlight"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "ice",
+            "nameAr": "ثلج",
+            "nameEn": "Ice",
+            "category": "elements",
+            "iconAsset": "❄️",
+            "strengths": [
+                "freezing",
+                "slippery"
+            ],
+            "weaknesses": [
+                "fire",
+                "salt"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "wind",
+            "nameAr": "رياح",
+            "nameEn": "Wind",
+            "category": "elements",
+            "iconAsset": "🌬️",
+            "strengths": [
+                "speed",
+                "pushing"
+            ],
+            "weaknesses": [
+                "solid walls"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "earth",
+            "nameAr": "تراب/أرض",
+            "nameEn": "Earth",
+            "category": "elements",
+            "iconAsset": "🌍",
+            "strengths": [
+                "durability",
+                "vibration"
+            ],
+            "weaknesses": [
+                "roots",
+                "water erosion"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "laser",
+            "nameAr": "ليزر",
+            "nameEn": "Laser",
+            "category": "tech",
+            "iconAsset": "💥",
+            "strengths": [
+                "precision",
+                "speed of light"
+            ],
+            "weaknesses": [
+                "mirrors",
+                "fog"
+            ],
+            "powerLevel": 9
+        },
+        {
+            "id": "cable",
+            "nameAr": "سلك/كيبل",
+            "nameEn": "Cable",
+            "category": "tech",
+            "iconAsset": "🔌",
+            "strengths": [
+                "tangling",
+                "electric transfer"
+            ],
+            "weaknesses": [
+                "scissors"
+            ],
+            "powerLevel": 4
+        },
+        {
+            "id": "turtle",
+            "nameAr": "سلحفاة",
+            "nameEn": "Turtle",
+            "category": "marineLife",
+            "iconAsset": "🐢",
+            "strengths": [
+                "shell",
+                "patience"
+            ],
+            "weaknesses": [
+                "flipped over"
+            ],
+            "powerLevel": 5
+        },
+        {
+            "id": "jellyfish",
+            "nameAr": "قنديل البحر",
+            "nameEn": "Jellyfish",
+            "category": "marineLife",
+            "iconAsset": "🪼",
+            "strengths": [
+                "stinging tentacles",
+                "transparent"
+            ],
+            "weaknesses": [
+                "sea turtles",
+                "shores"
+            ],
+            "powerLevel": 6
+        },
+        {
+            "id": "rock",
+            "nameAr": "صخرة",
+            "nameEn": "Rock",
+            "category": "stationery",
+            "iconAsset": "🪨",
+            "strengths": [
+                "hardness"
+            ],
+            "weaknesses": [
+                "paper"
+            ],
+            "powerLevel": 5
+        },
+        {
+            "id": "paper",
+            "nameAr": "ورقة",
+            "nameEn": "Paper",
+            "category": "stationery",
+            "iconAsset": "📄",
+            "strengths": [
+                "wrapping"
+            ],
+            "weaknesses": [
+                "scissors"
+            ],
+            "powerLevel": 2
+        },
+        {
+            "id": "cat",
+            "nameAr": "قطة",
+            "nameEn": "Cat",
+            "category": "wildAnimals",
+            "iconAsset": "🐱",
+            "strengths": [
+                "reflexes",
+                "9 lives"
+            ],
+            "weaknesses": [
+                "water"
+            ],
+            "powerLevel": 5
+        },
+        {
+            "id": "dog",
+            "nameAr": "كلب",
+            "nameEn": "Dog",
+            "category": "wildAnimals",
+            "iconAsset": "🐶",
+            "strengths": [
+                "loyalty",
+                "smell"
+            ],
+            "weaknesses": [
+                "chocolate"
+            ],
+            "powerLevel": 6
+        },
+        {
+            "id": "mosquito",
+            "nameAr": "بعوضة",
+            "nameEn": "Mosquito",
+            "category": "insects",
+            "iconAsset": "🦟",
+            "strengths": [
+                "annoyance",
+                "blood sucking"
+            ],
+            "weaknesses": [
+                "citronella"
+            ],
+            "powerLevel": 2
+        },
+        {
+            "id": "rhino",
+            "nameAr": "وحيد القرن",
+            "nameEn": "Rhino",
+            "category": "wildAnimals",
+            "iconAsset": "🦏",
+            "strengths": [
+                "horn charge",
+                "thick skin"
+            ],
+            "weaknesses": [
+                "blind spots"
+            ],
+            "powerLevel": 9
+        },
+        {
+            "id": "crane",
+            "nameAr": "رافعة",
+            "nameEn": "Crane",
+            "category": "tech",
+            "iconAsset": "🏗️",
+            "strengths": [
+                "lifting",
+                "height"
+            ],
+            "weaknesses": [
+                "wind",
+                "rust"
+            ],
+            "powerLevel": 8
+        },
+        {
+            "id": "magnet",
+            "nameAr": "مغناطيس",
+            "nameEn": "Magnet",
+            "category": "metals",
+            "iconAsset": "🧲",
+            "strengths": [
+                "attraction",
+                "disruption"
+            ],
+            "weaknesses": [
+                "non-metals"
+            ],
+            "powerLevel": 7
+        },
+        {
+            "id": "vulcan",
+            "nameAr": "بركان",
+            "nameEn": "Volcano",
+            "category": "elements",
+            "iconAsset": "🌋",
+            "strengths": [
+                "lava",
+                "ash"
+            ],
+            "weaknesses": [
+                "time"
+            ],
+            "powerLevel": 10
+        }
+    ]
+}

@@ -1,0 +1,435 @@
+{
+  "app_title": "Battle Factory",
+  "dashboard": {
+    "title": "Welcome to the Production Studio",
+    "subtitle": "Welcome back, Obada. Here's your activity summary for today.",
+    "stats": {
+      "total_videos": "Total Videos",
+      "total_spent": "Total Spent",
+      "avg_generation": "Avg. Generation",
+      "success_rate": "Success Rate",
+      "min": "min"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "view_all": "View All",
+      "produced": "Produced \"{}\"",
+      "saved": "Saved project \"{}\"",
+      "api_update": "Updated API settings ({})",
+      "time_ago": {
+        "just_now": "Just now",
+        "minutes_ago": "{} minutes ago",
+        "hours_ago": "{} hours ago",
+        "yesterday": "Yesterday"
+      }
+    },
+    "quick_actions": {
+      "title": "Quick Actions",
+      "new_battle": "New Battle",
+      "ai_lab": "AI Lab",
+      "vault": "Idea Vault",
+      "settings": "Settings"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "studio": "Studio",
+    "projects": "Projects",
+    "marketplace": "Marketplace",
+    "settings": "Settings",
+    "dashboard": "Dashboard",
+    "configurator": "Setup Studio",
+    "ai_lab": "AI Lab",
+    "idea_vault": "Idea Vault",
+    "analytics": "Analytics",
+    "about": "About",
+    "collapse": "Collapse Menu",
+    "search_hint": "Search for a project or video...",
+    "spent_today": "Spent Today",
+    "marketplace_explore": "Explore Marketplace"
+  },
+  "home": "Home",
+  "generate": "Generate",
+  "configurator": {
+    "title": "Battle Studio",
+    "subtitle": "Step 1: Choose fighters and define the battle path",
+    "settings_title": "Battle Settings",
+    "winner": {
+      "title": "Winner Determination",
+      "ai": "Auto (AI decides)",
+      "random": "Random (Luck)",
+      "manual": "I choose the winner"
+    },
+    "battle_type": {
+      "title": "Battle Type",
+      "tournament": "Tournament",
+      "royale": "Battle Royale",
+      "revenge": "Revenge Series"
+    },
+    "actions": {
+      "save_draft": "Save as Project",
+      "generate": "Generate Scenario ⚔️"
+    },
+    "library": {
+      "filter_all": "All",
+      "mood_epic": "🎭 Epic",
+      "mood_funny": "😂 Funny",
+      "mood_scary": "😱 Scary",
+      "luck_btn": "Surprise Me",
+      "power_level": "Power: {}"
+    },
+    "picker": {
+      "title": "Choose the Path of the Epic",
+      "subtitle": "5 different scenarios generated for your battle",
+      "option_label": "Option {}",
+      "potential_winner": "Potential Winner:",
+      "twist_level": "Twist Level:",
+      "save_to_vault": "Save to Vault",
+      "start_production": "Start Production Now ⚔️"
+    }
+  },
+  "vault": {
+    "title": "Idea Vault",
+    "subtitle": "Here you'targetContent find scenarios generated but not yet produced",
+    "generate_5": "Generate 5 New Ideas",
+    "empty": {
+      "title": "Vault is currently empty",
+      "desc": "Generate batches of ideas to save tokens and try different scenarios"
+    }
+  },
+  "about": {
+    "studio_title": "The Director's Workstation",
+    "philosophy": {
+      "title": "Philosophy",
+      "desc_en": "We believe AI shouldn't replace human imagination, but unchain it. ASMR Battle Factory is where creative logic meets cinematic production."
+    },
+    "stats": {
+      "code": "Lines of Code",
+      "contestants": "Contestants",
+      "architecture": "Clean Architecture",
+      "state": "State Driven"
+    },
+    "developer": {
+      "role": "Software Engineer & AI Architect"
+    },
+    "mission": {
+      "title": "Mission",
+      "desc": "Empowering content creators with cutting-edge AI orchestration. We transform abstract ideas into cinematic battle scenarios with surgical precision."
+    },
+    "features": {
+      "title": "Core Systems",
+      "ai_gen": "Neural Narrative Engine",
+      "ai_gen_desc": "Multi-model orchestration using Gemini, Llama, and GPT.",
+      "vault": "Scenario Vault",
+      "vault_desc": "Persistent storage for high-potential creative triggers.",
+      "market": "API Mesh",
+      "market_desc": "Dynamic scaling across global AI providers."
+    },
+    "tech": {
+      "title": "Technical Foundation",
+      "stack": "Built with Flutter for high-performance cross-platform rendering, leveraging Riverpod for reactive state management and Hive for ultra-fast local persistence. The neural layer is powered by the Google Gemini Pro and Meta Llama 3 via Groq API."
+    },
+    "community": {
+      "title": "Join the Factory",
+      "desc": "Support the development and suggest new features on our GitHub."
+    }
+  },
+  "categories": {
+    "insects": "Insects",
+    "wild_animals": "Wild Animals",
+    "marine_life": "Marine Life",
+    "metals": "Metals",
+    "elements": "Elements",
+    "stationery": "Stationery",
+    "food": "Food",
+    "mythical": "Mythical",
+    "tech": "Tech"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error: {}",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "coming_soon": "{} (Coming Soon)",
+    "cache_cleared": "Cache Cleared",
+    "api_key_saved": "{} API Key Saved Securely 🔒",
+    "launch_error": "Could not launch {}",
+    "back_to_studio": "Back to Studio"
+  },
+  "preview": {
+    "title": "Preview",
+    "coming_soon": "Video Preview Coming Soon"
+  },
+  "settings_page": {
+    "ai_brains": "AI Brains",
+    "ai_conductor": "AI Maestro",
+    "conductor_desc": "Manage AI brains and distribute generation tasks",
+    "openai_label": "OpenAI (GPT)",
+    "groq_label": "Groq (Llama)",
+    "deepseek_label": "DeepSeek",
+    "gemini_label": "Google Gemini",
+    "language": "Language",
+    "clearCache": "Clear Cache",
+    "about_app": "About App",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "ip_rights": "Intellectual Property",
+    "version": "Version"
+  },
+  "about_developer_title": "About Developer",
+  "developer_name": "Obada Dallo",
+  "developer_title": "Obada Dallo - App Developer",
+  "developer_bio": "Mobile app developer specializing in Flutter and innovative AI applications",
+  "social_github": "GitHub",
+  "social_linkedin": "LinkedIn",
+  "social_facebook": "Facebook",
+  "social_telegram": "Telegram",
+  "connect_with_me": "Connect with me",
+  "made_with_love": "Made with love for content creators",
+  "generator": {
+    "assemble_title": "ASSEMBLE YOUR FIGHTERS",
+    "initiate_btn": "INITIATE BATTLE SEQUENCE",
+    "loading_label": "AI DIRECTING SCENE...",
+    "cost_warning": {
+      "title": "High Cost Warning",
+      "desc": "This video generation will cost approximately:",
+      "provider_note": "Includes {} generation which is expensive.",
+      "edit_btn": "Edit Settings",
+      "confirm_btn": "Generate Anyway"
+    },
+    "domino": {
+      "btn": "DOMINO MODE (AUTO-PILOT)",
+      "active": "DOMINO MODE ACTIVE",
+      "progress": "Generating Battle {} / {}",
+      "report": "DOMINO COMPLETION REPORT",
+      "battles_count": "{} Battles Generated",
+      "scenes_count": "{} Scenes",
+      "dialog_title": "Domino Mode",
+      "dialog_desc": "Generate multiple battles sequentially. AI will create battle ideas and generate scripts relevant to them.",
+      "battles_option": "{} Battles"
+    },
+    "success": {
+      "another_btn": "Create Another Battle",
+      "scene_label": "Scene {}",
+      "audio_cue": "Audio: {}"
+    }
+  },
+  "marketplace_page": {
+    "title": "API Marketplace",
+    "search_hint": "Search for API...",
+    "filter_title": "Filter Results",
+    "filter_type": "By Type:",
+    "filter_cost": "By Cost:",
+    "filter_all": "All",
+    "type_text": "Text",
+    "type_image": "Image",
+    "type_video": "Video",
+    "type_audio": "Audio",
+    "cost_free": "Free",
+    "cost_freemium": "Freemium",
+    "done": "Done",
+    "my_providers": "My Active Providers ({})",
+    "steps_title": "Setup Steps",
+    "step1_title": "Create Account",
+    "step1_desc_card": "Note: Requires Credit Card ✅",
+    "step1_desc_free": "Free, No Card Required 🆓",
+    "step1_btn": "Go to Website",
+    "step2_title": "Get API Key",
+    "step2_desc": "Copy Key from Dashboard",
+    "step2_btn": "Open Documentation",
+    "step3_title": "Enter Key",
+    "step3_desc": "Encrypted and Saved Locally 🔐",
+    "one_tap_title": "One-Tap Setup",
+    "one_tap_desc": "No API Key required. Ready to use!",
+    "one_tap_btn": "Activate & Use",
+    "cost_calc_title": "Cost Calculator",
+    "enter_quantity": "Enter Quantity: {} {}",
+    "estimated_cost": "Estimated Cost:",
+    "unit_token": "1K Tokens",
+    "unit_image": "Image",
+    "unit_second": "Second",
+    "compare_title": "Compare Providers",
+    "syria_support": "Works in Syria",
+    "vpn_required": "VPN Required",
+    "visa_required": "Visa?",
+    "providers_count": "{} Providers",
+    "setup_btn": "Setup",
+    "key_placeholder": "sk-...",
+    "save_success": "Key Saved Successfully 🔐",
+    "save_fail": "Save Failed: {}",
+    "activate_success": "Activated Successfully!",
+    "price": "Price",
+    "quality": "Quality",
+    "speed": "Speed",
+    "key_required": "Key Required?",
+    "price_label": "Price: {}",
+    "recent_battles": "Recent Battles",
+    "no_battles": "No battles yet"
+  },
+  "marketplace": {
+    "website": "Visit Website",
+    "signup": "Sign Up",
+    "docs": "Documentation",
+    "quick_links": "Quick Links",
+    "configured": "Configured",
+    "not_configured": "Not Configured",
+    "ready_to_use": "Ready to use in battles",
+    "test": "Test",
+    "testing": "Testing Connection",
+    "testing_desc": "Checking API key validity...",
+    "connection_success": "Connection successful!",
+    "set_default": "Set as Default",
+    "default_set": "{} set as default",
+    "link_error": "Could not open link. Please try again.",
+    "setup_guide": "Setup Guide"
+  },
+  "step": {
+    "open_website": "Open Website"
+  },
+  "projects_page": {
+    "title": "Battle Projects",
+    "subtitle": "Manage your saved battle profiles",
+    "new_project": "New Project",
+    "empty_title": "No projects yet",
+    "empty_desc": "Start by creating your first battle project"
+  },
+  "onboarding_step1_title": "Battle Arena",
+  "onboarding_step1_desc": "Choose your fighters",
+  "onboarding_step2_title": "Four Forces",
+  "onboarding_step2_desc": "Select the elements",
+  "onboarding_step3_title": "Timeline",
+  "onboarding_step3_desc": "Control the flow",
+  "onboarding_step4_title": "AI Director",
+  "onboarding_step4_desc": "Let AI direct the battle",
+  "onboarding_apiKey_hint": "Enter API Key (Optional)",
+  "onboarding_start": "Start",
+  "onboarding_skip": "Skip",
+  "safety": {
+    "critical_title": "⚠️ Critical Operation in Progress",
+    "critical_desc": "Generating {} worth ${}...",
+    "critical_warning": "Exiting now may result in losing money & failure.",
+    "stay_btn": "Stay & Continue",
+    "exit_btn": "Exit (Unsafe)",
+    "unsaved_title": "💡 Unsaved Changes",
+    "unsaved_desc": "You have unsaved configuration changes.",
+    "cancel_btn": "Go Back",
+    "discard_btn": "Discard & Exit"
+  },
+  "contestant_browser": {
+    "title": "Browse Contestants"
+  },
+  "search_contestant": "Search contestants...",
+  "selected_count": "Selected: {}/{}",
+  "confirm_selection": "Confirm",
+  "add_contestant": "Add Contestant",
+  "max_contestants_reached": "Maximum {} contestants allowed",
+  "no_contestants_found": "No contestants found",
+  "error_loading_contestants": "Error loading contestants",
+  "category": {
+    "all": "All",
+    "insects": "🐜 Insects",
+    "wildAnimals": "🦁 Animals",
+    "marineLife": "🦈 Marine",
+    "metals": "⚙️ Metals",
+    "elements": "🔥 Elements",
+    "tech": "🤖 Tech",
+    "stationery": "✏️ Stationery",
+    "food": "🍎 Food",
+    "mythical": "🐉 Mythical"
+  },
+  "configuration_panel": {
+    "title": "Advanced Settings"
+  },
+  "winner_mode": {
+    "title": "Winner Selection",
+    "unexpected": "Unexpected",
+    "random": "Random",
+    "underdog": "Underdog Wins",
+    "favorite": "Favorite Wins"
+  },
+  "battle_type": {
+    "title": "Battle Format",
+    "tournament": "Tournament",
+    "royale": "Battle Royale",
+    "revenge": "Revenge Arc",
+    "showcase": "Showcase"
+  },
+  "provider_mix": {
+    "title": "AI Strategy",
+    "balanced": "Balanced",
+    "speed": "Speed Priority",
+    "quality": "Quality Priority",
+    "economy": "Economy"
+  },
+  "idea_generator": {
+    "title": "5 Crazy Ideas",
+    "desc": "Stuck? Let AI suggest 5 wild battle scenarios!",
+    "cost": "Cost: ~${cost} USD",
+    "generate": "Generate Ideas",
+    "button": "Generate 5 Ideas 💡",
+    "loading": "AI is thinking...",
+    "no_ideas": "No ideas generated",
+    "regenerate": "Regenerate"
+  },
+  "idea_applied": "Idea applied! Check your contestants.",
+  "error_applying_idea": "Failed to apply idea",
+  "settings": {
+    "control_hub": "Control Hub",
+    "ai": {
+      "title": "AI Brains",
+      "subtitle": "{} providers connected"
+    },
+    "display": {
+      "title": "Display",
+      "dark": "Dark Mode",
+      "light": "Light Mode"
+    },
+    "security": {
+      "title": "Security",
+      "locked": "Biometric Active",
+      "unlocked": "Not Protected"
+    },
+    "language": {
+      "title": "Language"
+    },
+    "status": {
+      "online": "System Online",
+      "apis": "APIs Connected",
+      "latency": "Avg Latency"
+    },
+    "danger_zone": {
+      "title": "DANGER ZONE"
+    },
+    "clear_cache": "Clear Cache",
+    "clear_cache_desc": "Free up storage space",
+    "reset_all": "Reset to Defaults",
+    "reset_all_desc": "Erase all settings and data",
+    "search": {
+      "hint": "Search settings..."
+    }
+  },
+  "hold_to_confirm": "Hold to confirm",
+  "close": "Close",
+  "projects": {
+    "library": "Battle Library",
+    "my_projects": "My Projects",
+    "produce": "Produce",
+    "loaded_into_studio": "Loaded '{name}' into Studio",
+    "duplicated": "Project duplicated",
+    "new_project": "New Project",
+    "name_hint": "Project name",
+    "new_project_desc": "Create an empty project and configure it in the Studio",
+    "search_hint": "Search projects...",
+    "battles": "Battles",
+    "spent": "Spent",
+    "last_used": "Last Used",
+    "new_empty": "Empty Project",
+    "from_template": "From Template",
+    "from_history": "From History"
+  },
+  "history": {
+    "title": "Recent Battles",
+    "empty": "No battles yet. Generate your first battle!"
+  }
+}

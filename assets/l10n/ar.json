@@ -1,0 +1,435 @@
+{
+  "app_title": "مصنع المعارك",
+  "dashboard": {
+    "title": "أهلاً بك في استوديو الإنتاج",
+    "subtitle": "مرحباً بك مجدداً، عبادة. إليك ملخص نشاطك اليوم.",
+    "stats": {
+      "total_videos": "إجمالي الفيديوهات",
+      "total_spent": "إجمالي الإنفاق",
+      "avg_generation": "مدة التوليد (متوسط)",
+      "success_rate": "نسبة النجاح",
+      "min": "دقيقة"
+    },
+    "activity": {
+      "title": "النشاط الأخير",
+      "view_all": "عرض الكل",
+      "produced": "تم إنتاج \"{}\"",
+      "saved": "تم حفظ مشروع \"{}\"",
+      "api_update": "تحديث إعدادات API ({})",
+      "time_ago": {
+        "just_now": "الآن",
+        "minutes_ago": "منذ {} دقائق",
+        "hours_ago": "منذ {} ساعات",
+        "yesterday": "أمس"
+      }
+    },
+    "quick_actions": {
+      "title": "إجراءات سريعة",
+      "new_battle": "معركة جديدة",
+      "ai_lab": "مختبر الذكاء",
+      "vault": "حافظة الأفكار",
+      "settings": "الإعدادات"
+    }
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "studio": "الاستوديو",
+    "projects": "المشاريع",
+    "marketplace": "المتجر",
+    "settings": "الإعدادات",
+    "dashboard": "الرئيسية",
+    "configurator": "استوديو الإعداد",
+    "ai_lab": "مختبر الذكاء",
+    "idea_vault": "حافظة الأفكار",
+    "analytics": "التحليلات",
+    "about": "حول التطبيق",
+    "collapse": "تصغير القائمة",
+    "search_hint": "البحث عن مشروع أو فيديو...",
+    "spent_today": "أنفقت اليوم",
+    "marketplace_explore": "استكشاف المتجر"
+  },
+  "home": "الرئيسية",
+  "generate": "توليد",
+  "configurator": {
+    "title": "استوديو الإعداد",
+    "subtitle": "الخطوة 1: اختيار المقاتلين وتحديد مسار المعركة",
+    "settings_title": "إعدادات المعركة",
+    "winner": {
+      "title": "تحديد الفائز",
+      "ai": "تلقائي (AI يقرر)",
+      "random": "عشوائي (صدفة)",
+      "manual": "أنا أختار الفائز"
+    },
+    "battle_type": {
+      "title": "نوع المعركة",
+      "tournament": "بطولة إقصائية",
+      "royale": "معركة ملكية",
+      "revenge": "سلسلة انتقام"
+    },
+    "actions": {
+      "save_draft": "حفظ كمشروع",
+      "generate": "توليد السيناريو ⚔️"
+    },
+    "library": {
+      "filter_all": "الكل",
+      "mood_epic": "🎭 ملحمي",
+      "mood_funny": "😂 مضحك",
+      "mood_scary": "😱 مرعب",
+      "luck_btn": "حظ عشوائي",
+      "power_level": "القوة: {}"
+    },
+    "picker": {
+      "title": "اختر مسار الملحمة",
+      "subtitle": "تم توليد 5 احتمالات مختلفة لمعركتك",
+      "option_label": "الاحتمال {}",
+      "potential_winner": "الفائز المحتمل:",
+      "twist_level": "مستوى الإثارة:",
+      "save_to_vault": "حفظ في الحافظة",
+      "start_production": "بدء الإنتاج الآن ⚔️"
+    }
+  },
+  "vault": {
+    "title": "حافظة الأفكار",
+    "subtitle": "هنا تجد السيناريوهات التي تم توليدها ولم تُنتج بعد",
+    "generate_5": "توليد 5 أفكار جديدة",
+    "empty": {
+      "title": "الحافظة فارغة حالياً",
+      "desc": "قم بتوليد دفعات من الأفكار لتوفير التوكن وتجربة سيناريوهات مختلفة"
+    }
+  },
+  "about": {
+    "studio_title": "استوديو المخرج المستقبلي",
+    "philosophy": {
+      "title": "الفلسفة",
+      "desc_ar": "نحن نؤمن أن الذكاء الاصطناعي لا ينبغي أن يحل محل الخيال البشري، بل يجب أن يكون الأداة التي تحرره. ASMR Battle Factory هو المكان الذي يلتقي فيه المنطق الإبداعي بالإنتاج السينمائي."
+    },
+    "stats": {
+      "code": "أسطر برمجية",
+      "contestants": "متسابقين",
+      "architecture": "هيكلية نظيفة",
+      "state": "مدفوع بالحالة"
+    },
+    "developer": {
+      "role": "مهندس برمجيات ومعماري ذكاء اصطناعي"
+    },
+    "mission": {
+      "title": "المهمة",
+      "desc": "تمكين صناع المحتوى باستخدام أحدث تقنيات أتمتة الذكاء الاصطناعي. نحن نحول الأفكار المجردة إلى سيناريوهات معارك سينمائية بدقة جراحية."
+    },
+    "features": {
+      "title": "الأنظمة الأساسية",
+      "ai_gen": "محرك السرد العصبي",
+      "ai_gen_desc": "تنسيق نماذج متعددة باستخدام Gemini و Llama و GPT.",
+      "vault": "خزنة السيناريوهات",
+      "vault_desc": "تخزين دائم للمحفزات الإبداعية ذات الإمكانيات العالية.",
+      "market": "شبكة الـ API",
+      "market_desc": "توسيع ديناميكي عبر مزودي الذكاء الاصطناعي العالميين."
+    },
+    "tech": {
+      "title": "الأساس التقني",
+      "stack": "تم البناء باستخدام Flutter للحصول على أداء عالٍ في رندرة الواجهات، مع الاعتماد على Riverpod لإدارة الحالة التفاعلية و Hive للتخزين المحلي فائق السرعة. الطبقة العصبية مدعومة بـ Google Gemini Pro و Meta Llama 3 عبر Groq API."
+    },
+    "community": {
+      "title": "انضم إلى المصنع",
+      "desc": "ادعم التطوير واقترح ميزات جديدة عبر صفحتنا على GitHub."
+    }
+  },
+  "categories": {
+    "insects": "حشرات",
+    "wild_animals": "حيوانات",
+    "marine_life": "بحري",
+    "metals": "معادن",
+    "elements": "عناصر",
+    "stationery": "مكتبي",
+    "food": "طعام",
+    "mythical": "أساطير",
+    "tech": "تقني"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ: {}",
+    "success": "نجاح",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "coming_soon": "{} (قريباً)",
+    "cache_cleared": "تم مسح التخزين المؤقت",
+    "api_key_saved": "تم حفظ مفتاح {} بأمان 🔒",
+    "launch_error": "تعذر فتح {}",
+    "back_to_studio": "العودة للاستوديو"
+  },
+  "preview": {
+    "title": "معاينة",
+    "coming_soon": "معاينة الفيديو قريباً"
+  },
+  "settings_page": {
+    "ai_brains": "عقول الذكاء الاصطناعي",
+    "ai_conductor": "مايسترو الذكاء الاصطناعي",
+    "conductor_desc": "إدارة عقول الذكاء الاصطناعي وتوزيع مهام التوليد",
+    "openai_label": "OpenAI (GPT)",
+    "groq_label": "Groq (Llama)",
+    "deepseek_label": "DeepSeek",
+    "gemini_label": "Google Gemini",
+    "language": "اللغة",
+    "clearCache": "مسح الذاكرة المؤقتة",
+    "about_app": "حول التطبيق",
+    "privacy_policy": "سياسة الخصوصية",
+    "terms_of_service": "شروط الخدمة",
+    "ip_rights": "الملكية الفكرية",
+    "version": "الإصدار"
+  },
+  "about_developer_title": "عن المطور",
+  "developer_name": "عبادة دللو",
+  "developer_title": "عبادة دللو - مطوّر تطبيقات",
+  "developer_bio": "مطوّر تطبيقات متخصص في Flutter وتطوير تطبيقات الذكاء الاصطناعي المبتكرة",
+  "social_github": "GitHub",
+  "social_linkedin": "LinkedIn",
+  "social_facebook": "Facebook",
+  "social_telegram": "Telegram",
+  "connect_with_me": "تواصل معي",
+  "made_with_love": "صنع بحب من أجل صناع المحتوى",
+  "generator": {
+    "assemble_title": "جهز مقاتليك",
+    "initiate_btn": "بدء تسلسل المعركة",
+    "loading_label": "المخرج الذكي يصمم المشهد...",
+    "cost_warning": {
+      "title": "تحذير: تكلفة عالية",
+      "desc": "ستكلف عملية التوليد هذه تقريباً:",
+      "provider_note": "تتضمن توليد {} وهو أمر مكلف.",
+      "edit_btn": "تعديل الإعدادات",
+      "confirm_btn": "التوليد على أي حال"
+    },
+    "domino": {
+      "btn": "وضع الدومينو (توليد تلقائي)",
+      "active": "وضع الدومينو نشط",
+      "progress": "جاري توليد المعركة {} / {}",
+      "report": "تقرير اكتمال الدومينو",
+      "battles_count": "تم توليد {} معارك",
+      "scenes_count": "{} مشاهد",
+      "dialog_title": "وضع الدومينو",
+      "dialog_desc": "توليد معارك متعددة بشكل متتابع. سيقوم الذكاء الاصطناعي بابتكار أفكار المعارك وتوليد السيناريوهات الخاصة بها.",
+      "battles_option": "{} معارك"
+    },
+    "success": {
+      "another_btn": "إنشاء معركة أخرى",
+      "scene_label": "مشهد {}",
+      "audio_cue": "الصوت: {}"
+    }
+  },
+  "marketplace_page": {
+    "title": "سوق الـ APIs",
+    "search_hint": "ابحث عن API...",
+    "filter_title": "تصفية النتائج",
+    "filter_type": "حسب النوع:",
+    "filter_cost": "حسب التكلفة:",
+    "filter_all": "الكل",
+    "type_text": "نصوص",
+    "type_image": "صور",
+    "type_video": "فيديو",
+    "type_audio": "صوت",
+    "cost_free": "مجاني",
+    "cost_freemium": "Freemium",
+    "done": "تم",
+    "my_providers": "مزوداتي المفعلة ({})",
+    "steps_title": "خطوات الإعداد",
+    "step1_title": "إنشاء حساب",
+    "step1_desc_card": "ملاحظة: يتطلب بطاقة ائتمان ✅",
+    "step1_desc_free": "مجاني تماماً ولا يحتاج بطاقة 🆓",
+    "step1_btn": "اذهب إلى الموقع",
+    "step2_title": "الحصول على API Key",
+    "step2_desc": "انسخ المفتاح من لوحة التحكم",
+    "step2_btn": "فتح التوثيق",
+    "step3_title": "إدخال المفتاح",
+    "step3_desc": "سيتم تشفيره وحفظه محلياً 🔐",
+    "one_tap_title": "إعداد فوري",
+    "one_tap_desc": "هذا المزود لا يتطلب مفتاح API. يمكنك استخدامه مباشرة!",
+    "one_tap_btn": "تفعيل واستخدام",
+    "cost_calc_title": "حاسبة التكلفة",
+    "enter_quantity": "أدخل الكمية: {} {}",
+    "estimated_cost": "التكلفة التقديرية:",
+    "unit_token": "ألف توكن",
+    "unit_image": "صورة",
+    "unit_second": "ثانية",
+    "compare_title": "مقارنة المزودين",
+    "syria_support": "يعمل في سوريا",
+    "vpn_required": "يلزم VPN",
+    "visa_required": "فيزا؟",
+    "providers_count": "{} مزودين",
+    "setup_btn": "إعداد",
+    "key_placeholder": "sk-...",
+    "save_success": "تم حفظ المفتاح بنجاح 🔐",
+    "save_fail": "فشل الحفظ: {}",
+    "activate_success": "تم التفعيل بنجاح!",
+    "price": "السعر",
+    "quality": "الجودة",
+    "speed": "السرعة",
+    "key_required": "مفتاح؟",
+    "price_label": "السعر: {}",
+    "recent_battles": "أحدث المعارك",
+    "no_battles": "لا توجد معارك بعد"
+  },
+  "marketplace": {
+    "website": "زيارة الموقع",
+    "signup": "إنشاء حساب",
+    "docs": "التوثيق",
+    "quick_links": "روابط سريعة",
+    "configured": "مُهيأ",
+    "not_configured": "غير مُهيأ",
+    "ready_to_use": "جاهز للاستخدام في المعارك",
+    "test": "اختبار",
+    "testing": "جاري الاختبار",
+    "testing_desc": "جاري التحقق من صلاحية مفتاح API...",
+    "connection_success": "تم الاتصال بنجاح!",
+    "set_default": "تعيين كافتراضي",
+    "default_set": "تم تعيين {} كافتراضي",
+    "link_error": "تعذر فتح الرابط. يرجى المحاولة مرة أخرى.",
+    "setup_guide": "دليل الإعداد"
+  },
+  "step": {
+    "open_website": "فتح الموقع"
+  },
+  "projects_page": {
+    "title": "مشاريع المعارك",
+    "subtitle": "إدارة ملفات تعريف المعارك المحفوظة",
+    "new_project": "مشروع جديد",
+    "empty_title": "لا توجد مشاريع حتى الآن",
+    "empty_desc": "ابدأ بإنشاء أول مشروع معركة خاص بك"
+  },
+  "onboarding_step1_title": "ساحة المعركة",
+  "onboarding_step1_desc": "اختر مقاتليك",
+  "onboarding_step2_title": "القوى الأربع",
+  "onboarding_step2_desc": "حدد العناصر",
+  "onboarding_step3_title": "الجدول الزمني",
+  "onboarding_step3_desc": "تحكم في التدفق",
+  "onboarding_step4_title": "المخرج الذكي",
+  "onboarding_step4_desc": "دع الذكاء الاصطناعي يخرج المعركة",
+  "onboarding_apiKey_hint": "أدخل مفتاح API (اختياري)",
+  "onboarding_start": "ابدأ",
+  "onboarding_skip": "تخطي",
+  "safety": {
+    "critical_title": "⚠️ عملية حساسة قيد التنفيذ",
+    "critical_desc": "جاري إنشاء {} بقيمة ${}...",
+    "critical_warning": "الخروج الآن قد يؤدي لخسارة المال وفشل العملية.",
+    "stay_btn": "البقاء والاستمرار",
+    "exit_btn": "خروج (غير آمن)",
+    "unsaved_title": "💡 تغييرات غير محفوظة",
+    "unsaved_desc": "لديك تعديلات لم تقم بحفظها.",
+    "cancel_btn": "تراجع",
+    "discard_btn": "تجاهل وخروج"
+  },
+  "contestant_browser": {
+    "title": "متصفح المقاتلين"
+  },
+  "search_contestant": "ابحث في المقاتلين...",
+  "selected_count": "المختارون: {}/{}",
+  "confirm_selection": "تأكيد الاختيار",
+  "add_contestant": "إضافة مقاتل",
+  "max_contestants_reached": "الحد الأقصى {} مقاتلين مسموح بهم",
+  "no_contestants_found": "لم يتم العثور على مقاتلين",
+  "error_loading_contestants": "خطأ في تحميل المقاتلين",
+  "category": {
+    "all": "الكل",
+    "insects": "🐜 حشرات",
+    "wildAnimals": "🦁 حيوانات",
+    "marineLife": "🦈 كائنات بحرية",
+    "metals": "⚙️ معادن",
+    "elements": "🔥 عناصر",
+    "tech": "🤖 تقنية",
+    "stationery": "✏️ قرطاسية",
+    "food": "🍎 طعام",
+    "mythical": "🐉 أساطير"
+  },
+  "configuration_panel": {
+    "title": "الإعدادات المتقدمة"
+  },
+  "winner_mode": {
+    "title": "تحديد الفائز",
+    "unexpected": "مفاجأة",
+    "random": "عشوائي",
+    "underdog": "فوز الضعيف",
+    "favorite": "فوز الأقوى"
+  },
+  "battle_type": {
+    "title": "نوع المعركة",
+    "tournament": "بطولة",
+    "royale": "باتل رويال",
+    "revenge": "قصة انتقام",
+    "showcase": "عرض استعراضي"
+  },
+  "provider_mix": {
+    "title": "استراتيجية الذكاء الاصطناعي",
+    "balanced": "متوازن",
+    "speed": "أولوية السرعة",
+    "quality": "أولوية الجودة",
+    "economy": "اقتصادي"
+  },
+  "idea_generator": {
+    "title": "5 أفكار مجنونة",
+    "desc": "محتار؟ دع الذكاء الاصطناعي يقترح 5 سيناريوهات جنونية!",
+    "cost": "التكلفة: ~${cost} دولار",
+    "generate": "ولد الأفكار",
+    "button": "ولد 5 أفكار 💡",
+    "loading": "جاري التفكير...",
+    "no_ideas": "لم يتم توليد أفكار",
+    "regenerate": "إعادة توليد"
+  },
+  "idea_applied": "تم تطبيق الفكرة! تحقق من قائمة المقاتلين.",
+  "error_applying_idea": "فشل في تطبيق الفكرة",
+  "settings": {
+    "control_hub": "غرفة التحكم",
+    "ai": {
+      "title": "الذكاء الاصطناعي",
+      "subtitle": "{} مزودات متصلة"
+    },
+    "display": {
+      "title": "المظهر",
+      "dark": "الوضع الداكن",
+      "light": "الوضع الفاتح"
+    },
+    "security": {
+      "title": "الأمان",
+      "locked": "البصمة مفعلة",
+      "unlocked": "غير محمي"
+    },
+    "language": {
+      "title": "اللغة"
+    },
+    "status": {
+      "online": "النظام يعمل",
+      "apis": "الـ APIs المتصلة",
+      "latency": "متوسط التأخير"
+    },
+    "danger_zone": {
+      "title": "منطقة الخطر"
+    },
+    "clear_cache": "مسح الذاكرة المؤقتة",
+    "clear_cache_desc": "تحرير مساحة التخزين",
+    "reset_all": "إعادة ضبط المصنع",
+    "reset_all_desc": "حذف جميع الإعدادات والبيانات",
+    "search": {
+      "hint": "ابحث في الإعدادات..."
+    }
+  },
+  "hold_to_confirm": "استمر بالضغط للتأكيد",
+  "close": "إغلاق",
+  "projects": {
+    "library": "مكتبة المعارك",
+    "my_projects": "مشاريعي",
+    "produce": "أنتج",
+    "loaded_into_studio": "تم تحميل '{name}' في الاستوديو",
+    "duplicated": "تم نسخ المشروع",
+    "new_project": "مشروع جديد",
+    "name_hint": "اسم المشروع",
+    "new_project_desc": "أنشئ مشروع فارغ وقم بتهيئته في الاستوديو",
+    "search_hint": "البحث في المشاريع...",
+    "battles": "معارك",
+    "spent": "مصاريف",
+    "last_used": "آخر استخدام",
+    "new_empty": "مشروع فارغ",
+    "from_template": "من قالب",
+    "from_history": "من السجل"
+  },
+  "history": {
+    "title": "المعارك الأخيرة",
+    "empty": "لا يوجد معارك بعد. ولد معركتك الأولى!"
+  }
+}
