@@ -19,6 +19,11 @@
 
 ---
 
+## Project Status | حالة المشروع
+
+- **EN:** Public concept build is approximately **60% complete**. This repository represents a strong product concept and direction, but it is not yet a finished release.
+- **AR:** النسخة العامة من الفكرة مكتملة تقريباً بنسبة **60%**. المستودع يعرض اتجاهاً ومنتجاً واعدين، لكنه ليس إصداراً نهائياً بعد.
+
 ## 🌟 Vision | الرؤية
 
 <table>
